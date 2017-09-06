@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/headline">
+
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="118dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center"
+        android:background="@drawable/back"
+        android:text="返回"
+        android:layout_margin="5dp"
+        android:textColor="#fff" />
+    <TextView
+        android:layout_gravity="center"
+        android:text="文本框"
+        android:layout_weight="1"
+        android:id="@+id/tv1"
+        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="114dp"
+        android:layout_height="84dp"
+        android:layout_gravity="center"
+        android:background="@drawable/goto1"
+        android:text="输入"
+        android:layout_margin="5dp"
+        android:textColor="#fff" />
+
+
+</LinearLayout>

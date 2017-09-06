@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <Button
+       android:id="@+id/IntoActivity"
+       android:text="前往活动界面"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoUI"
+        android:text="前往UI布局"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoFragment"
+        android:text="前往碎片布局"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoBroadCast"
+        android:text="前往广播页面"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntotheSQL"
+        android:text="前往SQL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:text="前往内容提供器"
+        android:id="@+id/IntoCPI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+ <Button
+     android:id="@+id/IntoMultiMedia"
+     android:text="@string/IntoMultiMedia"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" />
+ <Button
+     android:id="@+id/IntoByinternet"
+     android:text="@string/Byinternet"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" />
+ <Button
+     android:id="@+id/IntoService1"
+     android:text="@string/IntoService"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" />
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+      <TextView
+      android:id="@+id/Pageinfo"
+      android:text="@string/Pageinfo"
+      android:layout_width="0dp"
+      android:layout_weight="3"
+      android:gravity="right"
+      android:layout_marginEnd="20dp"
+      android:layout_marginRight="20dp"
+      android:layout_height="wrap_content" />
+     <Button
+         android:id="@+id/NextPage"
+         style="@style/Widget.AppCompat.Button.Borderless"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:layout_weight="1"
+         android:text="@string/NextPage"
+         android:textColor="@android:color/holo_red_dark" /></LinearLayout>
+</LinearLayout>

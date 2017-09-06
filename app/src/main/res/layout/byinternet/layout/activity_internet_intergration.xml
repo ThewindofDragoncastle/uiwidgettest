@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/Intowebview"
+        android:text="@string/Intowebview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoURLCONNHTMLdata"
+        android:text="@string/IntoHTMLdata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoOKHttpHTMLdata"
+        android:text="@string/IntoOKHttpHTMLdata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+    android:id="@+id/Intopullmethod"
+    android:text="@string/Intopullmethod"
+    android:textAllCaps="false"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoSAXmethod"
+        android:text="@string/IntoSAXmethod"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoJSONobjectmethod"
+        android:text="@string/IntoJSONobjectmethod"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoGSONmethod"
+        android:text="@string/IntoGSONmethod"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/Testchat"
+        android:text="@string/Testchat"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

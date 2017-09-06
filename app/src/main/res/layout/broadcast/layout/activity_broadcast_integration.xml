@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/MonitorChange"
+        android:text="监听网络改变状态（退出关闭监听）"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/MonitorNetworkStatus"
+        android:text="监听当前网络状态（需要获取权限）"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/BroadCastInputText"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:maxLines="2"
+        android:hint="请输入你想要广播的内容。"
+        android:textColor="@android:color/holo_purple"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/DIYbroadcast"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:text="发送自定义广播" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/intologin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="进入登录页面" />
+    <Button
+        android:id="@+id/disOrderBroadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="无序广播（两个进程无差别接收）" />
+    <Button
+        android:id="@+id/OrderBroadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="有序广播（优先级高的截断广播）" />
+</LinearLayout>

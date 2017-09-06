@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.uiwidgettest">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application xmlns:tools="http://schemas.android.com/tools"
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/apppicture"
+        android:label="无所不能的涛"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="PIHX4wsvVpcRYdtsKd8hzDSbxp0ZeTIZ" />
+
+        <activity android:name=".FunctionIntegration">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:label="活动功能集合界面"
+                    android:launchMode="singleTask" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.Main2Activity"
+            android:label="进度条显示"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.Main4Activity"
+            android:label="Listview控件"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.Main5Activity"
+            android:label="瀑布布局"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.Main6Activity"
+            android:label="RecycleView"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.chatgui"
+            android:label="聊天界面"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".fragment.DIYfragment"
+            android:label="碎片简单使用"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".news.IntoContentActivity"
+            android:label="单页新闻"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".news.MainxxActivity"
+            android:label="标题页界面"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Activity.ActivityIntegration"
+            android:label="活动功能集合界面"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".fragment.FragmentIntergration"
+            android:label="碎片功能集合界面"
+            android:launchMode="singleTask" />
+        <activity android:name=".Broadcast.BroadcastIntegration" />
+        <activity
+            android:name=".ui.UIintegration"
+            android:label="UI功能集合界面"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Activity.FirstActivity"
+            android:label="幻想之风"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Activity.SecondActivity"
+            android:label="本活动测试进入方法">
+            <intent-filter>
+                <action android:name="com.example.activitytest.ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.thirdActivity"
+            android:label="调用浏览器此活动被响应">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <!-- 这个活动的名字如果被其他活动调用就是根据这个名字以及满足如下条件它和别人调用的网页名字相同 -->
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="http" />
+                <!-- 表示接受收据必须协议部分是http -->
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.FourActivity"
+            android:label="singletop模式活动4"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".Activity.FiveActivity"
+            android:label="singletask模式活动5"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Activity.SixActivity"
+            android:label="singleinstance模式活动6"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".Broadcast.MonitorNetworkStatusChange"
+            android:label="监听网络状态改变"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Broadcast.JudgeNetworkStatus"
+            android:label="监听网络状态"
+            android:launchMode="singleTask" />
+
+        <receiver
+            android:name=".Broadcast.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".Broadcast.MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.UIWidgetTest.MY_BROADCAST" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".Broadcast.LoginActivity" />
+        <activity
+            android:name=".Broadcast.ForceOffActivity1"
+            android:label="强制下线界面1"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Broadcast.ForceOffLineActivity2"
+            android:label="强制下线界面20"
+            android:launchMode="singleTask" />
+
+        <receiver
+            android:name=".Broadcast.DisorderBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.uiwidgettest.DISORDERBROADCAST" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".Broadcast.OrderBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="100">
+                <action android:name="com.example.uiwidgettest.ORDERBROADCAST" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".FileSave.FileSQLSaveNotLitepal" />
+        <activity android:name=".FileSave.LitepalOSQL" />
+        <activity android:name=".FileSave.FileSaveIntegration" />
+        <activity android:name=".ContentProvider.ContentProviderIntegration" />
+        <activity android:name=".ContentProvider.GetContactMessage" />
+
+        <provider
+            android:name=".ContentProvider.MyContentProvider"
+            android:authorities="com.example.uiwidgettest.provider"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".mobilemultimedia.mobilemultimediaIntegration" />
+        <activity android:name=".mobilemultimedia.Notification_1" />
+        <activity android:name=".mobilemultimedia.NotificationNews" />
+        <activity android:name=".mobilemultimedia.TakePhotograph" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.uiwidgettest.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files_paths" />
+        </provider>
+
+        <activity android:name=".mobilemultimedia.PlayMusic" />
+        <activity android:name=".mobilemultimedia.PlayVideo" />
+        <activity android:name=".byinternet.InternetIntergration" />
+        <activity
+            android:name=".byinternet.ByWebView"
+            android:label="网页浏览" />
+        <activity android:name=".byinternet.HTMLdata" />
+        <activity android:name=".byinternet.OKHTTPGetData" />
+        <activity android:name=".byinternet.PullMethod" />
+        <activity android:name=".byinternet.chatfromserver" />
+        <activity android:name=".byinternet.SaxParse" />
+        <activity android:name=".byinternet.JSONobjectparse" />
+        <activity android:name=".byinternet.GSONparse" />
+        <activity android:name=".byinternet.MakeUseBetter" />
+
+        <service
+            android:name=".byservice.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".byservice.StartServiceAndStop" />
+        <activity android:name=".byservice.ServiceIntergration" />
+
+        <service android:name=".byservice.MyIntentService" />
+
+        <activity android:name=".byservice.FullDownload" />
+
+        <service
+            android:name=".byservice.DownloadService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".NextPage" />
+        <activity android:name=".usebaidumap.BaidumapTextView" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <activity android:name=".usebaidumap.CommentaryMap" />
+        <activity android:name=".usebaidumap.BaiduMapIntergration" />
+        <activity android:name=".materialdesign.MDintergration" />
+        <activity
+            android:name=".materialdesign.ToolbarTest"
+            android:label="tool效果标题栏"></activity>
+        <activity
+            android:name=".materialdesign.Hero_Activity"
+            android:theme="@style/HEROTHEME"></activity>
+        <activity android:name=".ui.Sendorrecieve.intactActivity"></activity>
+    </application>
+
+</manifest>

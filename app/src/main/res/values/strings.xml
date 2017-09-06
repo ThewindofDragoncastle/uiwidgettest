@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">UIWidgetTest</string>
+    <!--内容提供器-->
+    <string name="DIYContentprovider">自建内容提供者</string>
+    <string name="getContact">读取所有联系人信息</string>
+    <string name="callphone">拨打10010（无权限则申请权限）</string>
+    <!--碎片-->
+
+
+
+
+
+</resources>

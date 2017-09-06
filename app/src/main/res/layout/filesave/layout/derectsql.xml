@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CreateTable"
+        android:text="数据创建一个武将表"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <EditText
+            android:id="@+id/te1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="姓名"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:layout_height="90dp" />
+        <EditText
+            android:id="@+id/te2"
+            android:hint="武力"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp" />
+        <EditText
+            android:id="@+id/te3"
+            android:hint="智慧"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp" />
+        <EditText
+            android:id="@+id/te4"
+            android:hint="德行"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp" />
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addData"
+        android:text="添加数据"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/display" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteData"
+        android:text="删除需要的数据库"/>
+</LinearLayout>

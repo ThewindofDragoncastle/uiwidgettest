@@ -1,0 +1,9 @@
+
+<litepal>
+    <dbname value="herodata.db"></dbname>
+        <version value="2"></version>
+            <list>
+<mapping class="com.example.uiwidgettest.FileSave.HeroData"></mapping>
+                <mapping class="com.example.uiwidgettest.FileSave.heroclassication"></mapping>
+            </list>
+</litepal>

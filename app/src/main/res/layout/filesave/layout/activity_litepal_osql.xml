@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/CreateTable"
+    android:text="建表"
+    android:textAllCaps="false"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/te11"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="体力"
+            android:maxLines="1"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/te12"
+            android:hint="身高"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/te13"
+            android:hint="性别"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:layout_height="wrap_content" />
+        <EditText
+        android:id="@+id/te14"
+        android:hint="称号"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+            android:maxLines="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addData1"
+        android:text="添加数据"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteData2"
+        android:text="删除所有称号为虎痴身高180"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateData2"
+        android:text="修改所有男性别"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/display1" />
+</LinearLayout>

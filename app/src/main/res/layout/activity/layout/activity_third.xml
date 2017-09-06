@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <!--把布局格式更改为LinearLayout-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button_31"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_purple"
+        android:text="测试按钮" />
+
+</LinearLayout>
