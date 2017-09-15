@@ -16,12 +16,18 @@
         android:layout_marginLeft="10dp"
         android:textColor="@android:color/holo_purple"
         android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/inputaccount"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_gravity="center_vertical"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/inputaccount"
+            android:hint="君的账号"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+
 </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -36,12 +42,17 @@
             android:layout_marginLeft="10dp"
             android:textColor="@android:color/holo_purple"
             android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/inputpassword"
-            android:layout_gravity="center_vertical"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="wrap_content">
+        <EditText
+            android:hint="账号密码"
+            android:id="@+id/inputpassword"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
     <CheckBox

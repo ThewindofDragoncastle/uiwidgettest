@@ -1,8 +1,10 @@
 package com.example.uiwidgettest.materialdesign;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -21,12 +23,14 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.HeaderViewListAdapter;
 import android.widget.Toast;
 
 import com.example.uiwidgettest.MyApplication;
+import com.example.uiwidgettest.MyLog;
 import com.example.uiwidgettest.R;
 
 import java.net.MalformedURLException;
@@ -37,25 +41,28 @@ import java.util.Random;
 
 public class ToolbarTest extends AppCompatActivity {
     private DrawerLayout layout;
+    private int lastX;
+    private int lastY;
     private SwipeRefreshLayout refreshLayout;
     private HeroAdapter adapter;
     private RecyclerView recyclerView;
     private final int IMAGEUSEURL=1;
+    private final String URL="http://39.108.123.220";
     List<Hero> heroArrayList=new ArrayList<>();
     Hero[] heros= {
-            new Hero(new URL("http://192.168.0.103/picture/无极剑圣.jpg"), "无极剑圣"),
-            new Hero(new URL("http://192.168.0.103/picture/雷霆咆哮.jpg"), "雷霆咆哮"),
-            new Hero(new URL("http://192.168.0.103/picture/赵云子龙.jpg"), "赵云子龙"),
-            new Hero(new URL("http://192.168.0.103/picture/吕布奉先.jpg"), "吕布奉先"),
-            new Hero(new URL("http://192.168.0.103/picture/狂野女猎手.jpg"), "狂野女猎手"),
-            new Hero(new URL("http://192.168.0.103/picture/荒漠屠夫.jpg"), "荒漠屠夫"),
-            new Hero(new URL("http://192.168.0.103/picture/时间刺客.jpg"), "时间刺客"),
-            new Hero(new URL("http://192.168.0.103/picture/铁铠冥魂.jpg"), "铁铠冥魂"),
-            new Hero(new URL("http://192.168.0.103/picture/纳尔.jpg"), "纳尔"),
-            new Hero(new URL("http://192.168.0.103/picture/厄运小姐.jpg"), "赏金猎人"),
-            new Hero(new URL("http://192.168.0.103/picture/虚空恐惧.jpg"), "虚空恐惧"),
-            new Hero(new URL("http://192.168.0.103/picture/牛头酋长.jpg"), "牛头酋长"),
-            new Hero(new URL("http://192.168.0.103/picture/蜘蛛女皇.jpg"), "蜘蛛女皇")
+            new Hero(new URL( URL+"/picture/无极剑圣.jpg"), "无极剑圣"),
+            new Hero(new URL(URL+"/picture/雷霆咆哮.jpg"), "雷霆咆哮"),
+            new Hero(new URL(URL+"/picture/赵云子龙.jpg"), "赵云子龙"),
+            new Hero(new URL(URL+"/picture/吕布奉先.jpg"), "吕布奉先"),
+            new Hero(new URL(URL+"/picture/狂野女猎手.jpg"),"狂野女猎手"),
+            new Hero(new URL(URL+"/picture/荒漠屠夫.jpg"), "荒漠屠夫"),
+            new Hero(new URL(URL+"/picture/时间刺客.jpg"), "时间刺客"),
+            new Hero(new URL(URL+"/picture/铁铠冥魂.jpg"), "铁铠冥魂"),
+            new Hero(new URL(URL+"/picture/纳尔.jpg"), "纳尔"),
+            new Hero(new URL(URL+"/picture/厄运小姐.jpg"), "赏金猎人"),
+            new Hero(new URL(URL+"/picture/虚空恐惧.jpg"), "虚空恐惧"),
+            new Hero(new URL(URL+"/picture/牛头酋长.jpg"), "牛头酋长"),
+            new Hero(new URL(URL+"/picture/蜘蛛女皇.jpg"), "蜘蛛女皇")
 
     };
 
@@ -130,9 +137,47 @@ private void LoadRecyclerView()
    adapter =new HeroAdapter(heroArrayList);
     recyclerView.setAdapter(adapter);
     FloatingActionButton actionButton=(FloatingActionButton)findViewById(R.id.floatactionbutton);
+    actionButton.setOnTouchListener(new View.OnTouchListener() {
+        boolean Ismoved=false;
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            int x=(int)event.getX();
+            int y=(int)event.getY();
+
+            SharedPreferences.Editor sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit();
+
+            switch (event.getAction())
+            {
+                case MotionEvent.ACTION_DOWN:
+                    lastX=x;
+                    lastY=y;
+                   break;
+                case MotionEvent.ACTION_UP:
+                    MyLog.d("ToolbarTest:","Ismoved:"+Ismoved);
+                    if(Ismoved==true) {//判断移动还是按下按钮
+                        Ismoved=false;
+                        return true;
+                    }
+                    else
+                        return false;
+
+                case MotionEvent.ACTION_MOVE:
+                      Ismoved=true;
+                      int offsetX=x-lastX;
+                      int offsetY=y-lastY;
+                     v.layout(v.getLeft()+offsetX,v.getTop()+offsetY,v.getRight()+offsetX,v.getBottom()+offsetY);
+                    break;
+            }
+            sharedPreferences.putInt("HeroAdapterX",lastX);
+            sharedPreferences.putInt("HeroAdapterY",lastY);
+            sharedPreferences.apply();
+            return true;
+        }
+    });
     actionButton.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            MyLog.d("Toolbar:","悬浮按钮监听执行");
           recyclerView.setLayoutManager(new GridLayoutManager(getBaseContext(),2));
             adapter.notifyDataSetChanged();
             Snackbar.make(v,"分成两列网格成功",Snackbar.LENGTH_SHORT).setAction("恢复",
@@ -151,13 +196,13 @@ private void initHero()
     heroArrayList.clear();
     Hero inter= null;
     try {
-        inter = new Hero(new URL("http://192.168.0.103/哈哈.png"),"来自电脑的图片");
+        inter = new Hero(new URL(URL+"/哈哈.png"),"来自电脑的图片");
     } catch (MalformedURLException e) {
         e.printStackTrace();
     }
     //如果image为1 使用网络图片
     try {
-        inter.setUrl(new URL("http://192.168.0.103/哈哈.png"));
+        inter.setUrl(new URL(URL+"/哈哈.png"));
     } catch (MalformedURLException e) {
         e.printStackTrace();
     }

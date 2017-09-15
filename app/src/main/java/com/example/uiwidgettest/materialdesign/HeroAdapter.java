@@ -2,10 +2,13 @@ package com.example.uiwidgettest.materialdesign;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -14,6 +17,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.uiwidgettest.MyApplication;
 import com.example.uiwidgettest.MyLog;
 import com.example.uiwidgettest.R;
 
@@ -28,6 +32,7 @@ import java.util.List;
 public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.ViewHolder> {
     private Context context;
     private final int IMAGEUSEURL=1;
+
     static  class ViewHolder extends RecyclerView.ViewHolder
     {
         CardView cardView;
@@ -83,7 +88,7 @@ private List<Hero> mHeroList;
                       ForDownload forDownload=new ForDownload();
                       {
                           if(forDownload.Download(url)==0)
-                          Toast.makeText(context, "从网络上获取资源失败！", Toast.LENGTH_SHORT).show();
+                          Toast.makeText(MyApplication.getContext(), "从网络上获取资源失败！", Toast.LENGTH_SHORT).show();
                       }
                   }
               }).start();

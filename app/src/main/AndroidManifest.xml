@@ -247,11 +247,14 @@
         <activity android:name=".materialdesign.MDintergration" />
         <activity
             android:name=".materialdesign.ToolbarTest"
-            android:label="tool效果标题栏"></activity>
+            android:label="tool效果标题栏" />
         <activity
             android:name=".materialdesign.Hero_Activity"
-            android:theme="@style/HEROTHEME"></activity>
-        <activity android:name=".ui.Sendorrecieve.intactActivity"></activity>
+            android:theme="@style/HEROTHEME" />
+        <activity android:name=".ui.Sendorrecieve.intactActivity" />
+        <activity android:name=".TheLight.cardview" />
+        <activity android:name=".TheLight.thelightintergration" />
+        <activity android:name=".TheLight.Calculator"></activity>
     </application>
 
 </manifest>

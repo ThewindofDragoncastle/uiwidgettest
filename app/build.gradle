@@ -24,6 +24,7 @@ android {
                             [
                                     'src/main/res/layout/fragment',
                                     'src/main/res/layout/gui',
+                                    'src/main/res/layout/thelight',
                                     'src/main/res/layout/serviceuse',
                                     'src/main/res/layout/broadcast',
                                     'src/main/res/layout/activity',

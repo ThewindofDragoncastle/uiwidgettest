@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.uiwidgettest.TheLight.thelightintergration;
 import com.example.uiwidgettest.materialdesign.MDintergration;
 import com.example.uiwidgettest.usebaidumap.BaiduMapIntergration;
 import com.example.uiwidgettest.usebaidumap.BaidumapTextView;
@@ -25,6 +26,8 @@ public class NextPage extends AppCompatActivity implements View.OnClickListener{
         IntoBaiduMap.setOnClickListener(this);
         Button IntoMD=(Button)findViewById(R.id.IntoMD);
         IntoMD.setOnClickListener(this);
+        Button IntotheLight=(Button)findViewById(R.id.IntotheLight);
+        IntotheLight.setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +40,9 @@ public class NextPage extends AppCompatActivity implements View.OnClickListener{
                 startActivity(intent);
                 break;
             case R.id.IntoMD:intent=new Intent(this, MDintergration.class);
+                startActivity(intent);
+                break;
+            case R.id.IntotheLight:intent=new Intent(this, thelightintergration.class);
                 startActivity(intent);
                 break;
         }

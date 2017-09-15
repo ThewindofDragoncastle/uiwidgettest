@@ -68,9 +68,9 @@ public class FullDownload extends AppCompatActivity implements View.OnClickListe
         {
             case R.id.StartDownload:
 //                String url="https://raw.githubusercontent.com/guolindev/eclipse/master/eclipse-inst-win64.exe";
-                 String  url= "http://192.168.0.103/"+editText.getText().toString().split("隐藏IP/")[1];
+                 String  url= "http://39.108.123.220/"+editText.getText().toString().split("隐藏IP/")[1];
 //                 url="http://192.168.0.102/mysql-5.6.17-winx64.zip";
-                displayHTTP.setText("下载地址：http://隐藏IP/"+url.split("192.168.0.102/")[1]);
+                displayHTTP.setText("下载地址：http://隐藏IP/"+url.split("39.108.123.220/")[1]);
                 MyLog.i("FullDownload","地址："+url);
                 binder1.startdownload(url);
                 break;

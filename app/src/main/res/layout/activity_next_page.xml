@@ -14,6 +14,12 @@
         android:text="@string/IntoMD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntotheLight"
+        android:textColor="@color/colorPrimary"
+        android:text="进化之光"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/Intoprocard"
+        android:textColor="@color/colorPrimary"
+        android:text="进度条式卡片布局"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/Intocalculator"
+        android:textColor="@color/colorPrimary"
+        android:text="计算器"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

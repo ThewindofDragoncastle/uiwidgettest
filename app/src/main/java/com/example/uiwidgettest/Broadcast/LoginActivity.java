@@ -22,6 +22,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.regex.Pattern;
 
 public class LoginActivity extends BaseActivity {
 
@@ -77,6 +78,16 @@ public class LoginActivity extends BaseActivity {
                 if(account.toString().isEmpty()||password.toString().isEmpty())
                 {
                     Toast.makeText(getBaseContext(),"账号或者密码未输入",Toast.LENGTH_SHORT).show();
+                }
+                else if(!validatePassword(password.toString()))
+                {
+                  editText1.setEnabled(true);
+                    editText1.setError("密码格式不正确，至少包含四个数字且只能使用数字或字母");
+                }
+                else if(!validateAccount(account.toString()))
+                {
+                    editText.setEnabled(true);
+                    editText.setError("账号格式不正确，只能使用数字");
                 }
                 else
                 {
@@ -193,4 +204,21 @@ if(dialog==null) {
             e.printStackTrace();
         }
     }
+    public boolean validatePassword(String password)
+    {
+        //验证密码合法性
+      String ValidatePassword="^[\\d{4,}]+[a-zA-Z0-9]$";
+        Pattern pattern=Pattern.compile(ValidatePassword);
+        MyLog.d("LoginActivity:","Password:"+pattern.matcher("12344a").matches());
+        return pattern.matcher(password).matches();
+    }
+    public boolean validateAccount(String Account)
+    {
+        //验证密码合法性
+        String ValidateAccount="^[0-9]*$";
+        Pattern pattern=Pattern.compile(ValidateAccount);
+        MyLog.d("LoginActivity:","Account:"+pattern.matcher("12312434").matches());
+        return pattern.matcher(Account).matches();
+    }
+
 }
