@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
     <!--父布局-->
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/reclyer2"
         android:layout_width="match_parent"

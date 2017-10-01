@@ -1,5 +1,6 @@
 package com.example.uiwidgettest.ui;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,30 +12,38 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.uiwidgettest.broadcast.seivice.DataListener;
+import com.example.uiwidgettest.broadcast.seivice.StartService;
 import com.example.uiwidgettest.MyLog;
 import com.example.uiwidgettest.R;
-import com.example.uiwidgettest.ui.Sendorrecieve.Send;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-public class chatgui extends AppCompatActivity implements Runnable {
+public class chatgui extends AppCompatActivity {
     private static List<Message> mmessageList=new ArrayList<Message>();
+    private final int CHATGUI=2;
+    private final String TAG="chatgui";
     public EditText inputText;
     private Button send;
     private  static RecyclerView recyclerView;
-    private int index;
     private StringBuffer sb=new StringBuffer("");
     static MsgAdapter adapter;
-//    static PrintStream ps;
-    static DataOutputStream dos;
-    private Socket socket;
-   static String currentaccount;
-   static String targetaccount;
+    static String currentaccount;
+    static String targetaccount;
+//    private ReceiveDatantentService.WeReceive weReceive;
+    DataListener logindata=new DataListener() {
+        @Override
+        public void ReturnData(String data) {
+        MyLog.d(TAG,"从服务返回的数据："+data);
+            handledata(data);
+        }
+
+        @Override
+        public void Already() {
+            MyLog.d("LoginActivity:","已经准备好了，可以向服务输出数据。");
+        }
+    };
     static Handler handler=new Handler() {
         @Override
         public void handleMessage(android.os.Message msg) {
@@ -66,6 +75,23 @@ public class chatgui extends AppCompatActivity implements Runnable {
         informdata();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatgui);
+//        weReceive=(ReceiveDatantentService.WeReceive)getIntent()
+//                .getSerializableExtra("WeReceive");
+        String message=null;
+        try {
+            message=getIntent().getExtras().getString("Message");
+        }catch (NullPointerException e)
+        {
+            MyLog.d(TAG,"未得到传来的消息");
+        }
+
+            if (message!=null) {
+                handledata(message);
+                MyLog.d(TAG,"通知传递的消息："+message);
+            }
+
+        StartService.weReceive.SetDataListener(logindata);
+        StartService.weReceive.SetCurrentActivity(CHATGUI);
         inputText=(EditText)findViewById(R.id.input_text);
         send=(Button)findViewById(R.id.chatguibutton1);
         recyclerView=(RecyclerView)findViewById(R.id.reclyer2);
@@ -74,12 +100,16 @@ public class chatgui extends AppCompatActivity implements Runnable {
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter =new MsgAdapter(mmessageList);
         recyclerView.setAdapter(adapter);
-        currentaccount= getIntent().getStringExtra("currentaccount");
-       targetaccount=getIntent().getStringExtra("targetaccount");
-        MyLog.i(getLocalClassName(),currentaccount);//这句话不能在线程开启之后啊啊啊啊嗄
-        new Thread(new chatgui()).start();//连接网络线程
+        currentaccount=StartService.weReceive.getCurrentAccount() ;
+        targetaccount=StartService.weReceive.getTargetAccount();
+        MyLog.d(TAG,"当前："+currentaccount+"目标："+targetaccount);
 
-
+        //这里犯了一个小错误 把account清o再传递
+//        targetaccount=getIntent().getStringExtra("TargetAccountService");
+//       targetaccount=getIntent().getStringExtra("TargetAccount");
+        MyLog.i(getLocalClassName(),currentaccount);
+        StartService.weReceive.WriteToService(  "账号信息:"+currentaccount+":");
+        StartService.weReceive.WriteToService("未读:"+currentaccount+":"+targetaccount);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,9 +120,7 @@ public class chatgui extends AppCompatActivity implements Runnable {
                     Log.d("ChatfromServer","输入框获取的数据："+sb.toString());
                     Message message1=new Message(sb.toString(),Message.TYPE_SEND);
                     Log.d("ChatfromServer", "发送成功！");
-
-
-                    Send.sendtoserver(dos,sb.toString(),"消息:"+targetaccount);
+                    StartService.weReceive.WriteToService("消息:"+targetaccount+":"+sb);
                     MyLog.i("chatgui:","消息目标账户:"+targetaccount);
                     mmessageList.add(message1);
                     adapter.notifyItemInserted(mmessageList.size()-1);
@@ -106,82 +134,35 @@ public class chatgui extends AppCompatActivity implements Runnable {
             }
         });
     }
-    @Override
-    public void run()
-    {
-        try {
-             socket = new Socket("39.108.123.220",30000);
-//            socket = new Socket("172.18.242.163",30000);
-            Log.d("ChatfromServer","成功连接服务器");
-            dos=new DataOutputStream(socket.getOutputStream());
-            Send.sendcurrentinfo(dos,currentaccount);
-            dos.writeUTF("未读:"+currentaccount+":"+targetaccount);
-            dos.flush();
-            //初始化账号信息  必须使用静态子线程否则就是null
-            String line=null;
-            new Thread(new RecieveThread(socket)).start();
-        }catch (IOException e)
-        {
-            Log.d("ChatfromServer","不能连接ip");
-        }
-    }
     private void informdata()
     {
        mmessageList.clear();
     }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        try {
-            if (socket != null)
-                socket.close();
-        }catch (IOException e)
-        {
-            Log.d("ChatfromServer","不能关闭");
-        }
-    }
-}
-
-class RecieveThread implements Runnable
-{
-    private  Socket socket;
-//    private BufferedReader br=null;
-    DataInputStream dataInputStream=null;
-    public RecieveThread(Socket socket)
+    private void handledata(String content)
     {
-        this.socket=socket;
-        try {
-            dataInputStream=new DataInputStream(new DataInputStream(socket.getInputStream()));
-        }catch (IOException e)
-        {
-            Log.d("ChatfromServer","获取Socket输出流失败。");
+        android.os.Message message=new android.os.Message();
+//        Log.d("ChatfromServer","准备接收！");
+        if(!content.split(":")[0].equals("当前连接")) {
+            message.what = 2;
+            message.obj =content;
+            chatgui.handler.sendMessage(message);
+            Log.d("ChatfromServer", "接收成功！");
         }
-
+        else if(content.split(":")[0].equals("强制下线"))
+        {
+            Intent intent=new Intent("com.example.uiwidgettest.GOFORITOUTLINE");
+            sendBroadcast(intent);
+        }
+        else {
+            message.what = 3;
+            message.obj=content.split(":")[1];
+            chatgui.handler.sendMessage(message);
+        }
     }
+
     @Override
-    public void run() {
-        try {
-            String content=null;
-            Log.d("ChatfromServer","客户端线程已进入");
-            while ((content=dataInputStream.readUTF())!=null)
-            {
-                android.os.Message message=new android.os.Message();
-                Log.d("ChatfromServer","准备接收！");
-                if(!content.split(":")[0].equals("当前连接")) {
-                    message.what = 2;
-                    message.obj =content;
-                    chatgui.handler.sendMessage(message);
-                    Log.d("ChatfromServer", "接收成功！");
-                }
-                else {
-                    message.what = 3;
-                    message.obj=content.split(":")[1];
-                    chatgui.handler.sendMessage(message);
-                }
-            }
-        }catch (IOException e)
-        {
-            Log.d("ChatfromServer","获取Socket输出流失败。");
-        }
+    protected void onRestart() {
+        super.onRestart();
+        StartService.weReceive.SetCurrentActivity(CHATGUI);
     }
 }

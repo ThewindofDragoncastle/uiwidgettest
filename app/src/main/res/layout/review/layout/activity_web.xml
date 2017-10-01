@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.uiwidgettest.myreview.WebView">
+<WebView
+    android:id="@+id/ReviewWebview"
+    android:layout_width="match_parent"
+    android:layout_weight="7"
+    android:layout_height="0dp">
+</WebView>
+    <RelativeLayout
+        android:background="@color/myblue"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/webtoback"
+            android:background="@drawable/back"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_margin="15dp" />
+    <Button
+        android:id="@+id/webtoforward"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/webforward"
+        android:layout_width="40dp"
+        android:layout_margin="15dp"
+        android:layout_height="25dp" />
+
+    </RelativeLayout>
+</LinearLayout>

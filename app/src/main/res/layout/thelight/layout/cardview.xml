@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TheLight.cardview">
+    tools:context=".thelight.cardview">
     <android.support.v7.widget.CardView
         android:id="@+id/tv_item"
         android:layout_centerInParent="true"

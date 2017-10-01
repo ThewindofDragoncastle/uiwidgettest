@@ -44,6 +44,7 @@ private static final String HERO_NAME="hero_textview";
         MyLog.i("Hero Activity","姓名："+name);
         imageView=(ImageView)findViewById(R.id.heroImageView);
         if(!sqLiteDatabase.query("HeroMessage",null,null,null,null,null,null).moveToNext()){
+            //不能查询到数据就建立数据库
             InputDatatoDatabase inputDatatoDatabase = new InputDatatoDatabase();
             inputDatatoDatabase.Inputdata();
             MyLog.d("Hero ACtivity:","数据库不存在！");

@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application xmlns:tools="http://schemas.android.com/tools"
         android:name=".MyApplication"
@@ -73,24 +74,24 @@
             android:label="标题页界面"
             android:launchMode="singleTask" />
         <activity
-            android:name=".Activity.ActivityIntegration"
+            android:name=".activity.ActivityIntegration"
             android:label="活动功能集合界面"
             android:launchMode="singleTask" />
         <activity
             android:name=".fragment.FragmentIntergration"
             android:label="碎片功能集合界面"
             android:launchMode="singleTask" />
-        <activity android:name=".Broadcast.BroadcastIntegration" />
+        <activity android:name=".broadcast.BroadcastIntegration" />
         <activity
             android:name=".ui.UIintegration"
             android:label="UI功能集合界面"
             android:launchMode="singleTask" />
         <activity
-            android:name=".Activity.FirstActivity"
+            android:name=".activity.FirstActivity"
             android:label="幻想之风"
             android:launchMode="singleTask" />
         <activity
-            android:name=".Activity.SecondActivity"
+            android:name=".activity.SecondActivity"
             android:label="本活动测试进入方法">
             <intent-filter>
                 <action android:name="com.example.activitytest.ACTION_START" />
@@ -99,7 +100,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.thirdActivity"
+            android:name=".activity.thirdActivity"
             android:label="调用浏览器此活动被响应">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -111,28 +112,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.FourActivity"
+            android:name=".activity.FourActivity"
             android:label="singletop模式活动4"
             android:launchMode="singleTop" />
         <activity
-            android:name=".Activity.FiveActivity"
+            android:name=".activity.FiveActivity"
             android:label="singletask模式活动5"
             android:launchMode="singleTask" />
         <activity
-            android:name=".Activity.SixActivity"
+            android:name=".activity.SixActivity"
             android:label="singleinstance模式活动6"
             android:launchMode="singleInstance" />
         <activity
-            android:name=".Broadcast.MonitorNetworkStatusChange"
+            android:name=".broadcast.MonitorNetworkStatusChange"
             android:label="监听网络状态改变"
             android:launchMode="singleTask" />
         <activity
-            android:name=".Broadcast.JudgeNetworkStatus"
+            android:name=".broadcast.JudgeNetworkStatus"
             android:label="监听网络状态"
             android:launchMode="singleTask" />
 
         <receiver
-            android:name=".Broadcast.BootCompleteReceiver"
+            android:name=".broadcast.BootCompleteReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -140,7 +141,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".Broadcast.MyReceiver"
+            android:name=".broadcast.MyReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -148,18 +149,20 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".Broadcast.LoginActivity" />
         <activity
-            android:name=".Broadcast.ForceOffActivity1"
+            android:name=".broadcast.LoginActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".broadcast.ForceOffActivity1"
             android:label="强制下线界面1"
             android:launchMode="singleTask" />
         <activity
-            android:name=".Broadcast.ForceOffLineActivity2"
+            android:name=".broadcast.ForceOffLineActivity2"
             android:label="强制下线界面20"
             android:launchMode="singleTask" />
 
         <receiver
-            android:name=".Broadcast.DisorderBroadcast"
+            android:name=".broadcast.DisorderBroadcast"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -167,7 +170,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".Broadcast.OrderBroadcast"
+            android:name=".broadcast.OrderBroadcast"
             android:enabled="true"
             android:exported="true">
             <intent-filter android:priority="100">
@@ -175,14 +178,14 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".FileSave.FileSQLSaveNotLitepal" />
-        <activity android:name=".FileSave.LitepalOSQL" />
-        <activity android:name=".FileSave.FileSaveIntegration" />
-        <activity android:name=".ContentProvider.ContentProviderIntegration" />
-        <activity android:name=".ContentProvider.GetContactMessage" />
+        <activity android:name=".filesave.FileSQLSaveNotLitepal" />
+        <activity android:name=".filesave.LitepalOSQL" />
+        <activity android:name=".filesave.FileSaveIntegration" />
+        <activity android:name=".contentprovider.ContentProviderIntegration" />
+        <activity android:name=".contentprovider.GetContactMessage" />
 
         <provider
-            android:name=".ContentProvider.MyContentProvider"
+            android:name=".contentprovider.MyContentProvider"
             android:authorities="com.example.uiwidgettest.provider"
             android:enabled="true"
             android:exported="true" />
@@ -251,10 +254,48 @@
         <activity
             android:name=".materialdesign.Hero_Activity"
             android:theme="@style/HEROTHEME" />
-        <activity android:name=".ui.Sendorrecieve.intactActivity" />
-        <activity android:name=".TheLight.cardview" />
-        <activity android:name=".TheLight.thelightintergration" />
-        <activity android:name=".TheLight.Calculator"></activity>
+        <activity
+            android:name=".ui.sendorrecieve.intactActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".thelight.cardview" />
+        <activity android:name=".thelight.thelightintergration" />
+        <activity android:name=".thelight.Calculator" />
+
+        <service
+            android:name=".broadcast.seivice.ReceiveDatantentService"
+            android:exported="false" />
+
+        <provider
+            android:name=".contentprovider.ChattranscriptsContentProvider"
+            android:authorities="com.example.uiwidgettest.herodatacontentprovider"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".thelight.tab.TabActivity" />
+        <activity android:name=".myreview.Review" />
+        <activity android:name=".myreview.WebView">
+            <intent-filter>
+                <action android:name="com.example.uiwidgettest.ACTION_MYWEBVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.ACTION_MYWEBVIEW" />
+
+                <data android:scheme="http" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".myreview.MyBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".thelight.tab.Poppop"
+            android:theme="@style/Theme.AppCompat.Dialog">
+        </activity>
     </application>
 
 </manifest>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
-    tools:context="com.example.uiwidgettest.TheLight.Calculator">
+    tools:context="com.example.uiwidgettest.thelight.Calculator">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_weight="1"

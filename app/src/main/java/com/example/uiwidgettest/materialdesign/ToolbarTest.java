@@ -63,7 +63,6 @@ public class ToolbarTest extends AppCompatActivity {
             new Hero(new URL(URL+"/picture/虚空恐惧.jpg"), "虚空恐惧"),
             new Hero(new URL(URL+"/picture/牛头酋长.jpg"), "牛头酋长"),
             new Hero(new URL(URL+"/picture/蜘蛛女皇.jpg"), "蜘蛛女皇")
-
     };
 
     public ToolbarTest() throws MalformedURLException {

@@ -20,6 +20,12 @@
         android:text="进化之光"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoReview"
+        android:textColor="@color/colorPrimary"
+        android:text="复习"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
