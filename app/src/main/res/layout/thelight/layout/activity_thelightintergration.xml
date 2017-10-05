@@ -22,4 +22,10 @@
         android:text="标签"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoGamble"
+        android:textColor="@color/colorPrimary"
+        android:text="幻想三国赌场"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

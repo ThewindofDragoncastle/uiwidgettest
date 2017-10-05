@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="名"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText" />
+        <EditText
+            android:id="@+id/cognoment"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="字"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/energy"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="体"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/force"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="武"
+            android:maxLines="1"
+            android:inputType="number"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/wit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="智"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/loyal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="忠"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/virtue"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="德"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RadioGroup
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/genderman"
+            android:textColor="@color/myblue"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="男"
+            android:layout_weight="1" />
+        <RadioButton
+            android:id="@+id/genderfamale"
+            android:text="女"
+            android:textColor="@color/myblue"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+    <TextView
+            android:layout_width="0dp"
+             android:id="@+id/displayId"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/reviewsqledit"
+            android:background="@drawable/review_button_selector"
+            android:textAppearance="@style/ButtonText"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:text="编辑"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/reviewsqldelete"
+                android:background="@drawable/review_button_selector"
+                android:textAppearance="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:text="删除"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/reviewsqlupdate"
+                android:background="@drawable/review_button_selector"
+                android:textAppearance="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="更新"
+                android:visibility="gone"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/reviewsqlconfirm"
+            android:background="@drawable/review_button_selector"
+            android:textAppearance="@style/ButtonText"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:text="确认"
+            android:visibility="gone"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+</LinearLayout>

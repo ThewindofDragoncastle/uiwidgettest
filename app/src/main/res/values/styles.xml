@@ -7,4 +7,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 <style name="HEROTHEME" parent="AppTheme"/>
+    <style name="ButtonText">
+        <item name="android:textColor">@color/mywhite</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="DisplayText">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="EditTextText">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:editTextColor">@android:color/holo_purple</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
 </resources>

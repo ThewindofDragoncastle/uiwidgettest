@@ -273,7 +273,7 @@
 
         <activity android:name=".thelight.tab.TabActivity" />
         <activity android:name=".myreview.Review" />
-        <activity android:name=".myreview.WebView">
+        <activity android:name=".myreview.broadcast.WebView">
             <intent-filter>
                 <action android:name="com.example.uiwidgettest.ACTION_MYWEBVIEW" />
 
@@ -285,7 +285,7 @@
         </activity>
 
         <receiver
-            android:name=".myreview.MyBroadcast"
+            android:name=".myreview.broadcast.MyBroadcast"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -293,9 +293,19 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".thelight.tab.Poppop"
-            android:theme="@style/Theme.AppCompat.Dialog">
-        </activity>
+        <activity
+            android:name=".thelight.tab.Poppop"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".thelight.gamble.Gamble" />
+        <activity android:name=".myreview.DisplayData" />
+
+        <provider
+            android:name=".myreview.contentprovide.HeroContentProvider"
+            android:authorities="com.example.uiwidgettest.heroprovider"
+            android:enabled="true"
+            android:exported="true"></provider>
+
+        <activity android:name=".myreview.contentprovide.DispalyCP"></activity>
     </application>
 
 </manifest>

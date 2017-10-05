@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+    <TextView
+        android:background="@color/halftransparent"
+        android:textSize="15sp"
+        android:textColor="@color/mywhite"
+        android:id="@+id/ReviewdisplaySQL"
+        android:textAppearance="@style/DisplayText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </ScrollView>
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/fragmentlist"
+    android:scrollbars="vertical"
+    android:layout_weight="2"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
+</android.support.v7.widget.RecyclerView>
+    <Button
+        android:text="我要添加"
+        android:id="@+id/iwanttoinsert"
+        android:layout_margin="10dp"
+        android:background="@drawable/review_button_selector"
+        android:textAppearance="@style/ButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.uiwidgettest.myreview;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,11 +55,11 @@ public class ButtonRecycleAdapter extends RecyclerView.Adapter<ButtonRecycleAdap
             @Override
             public boolean onLongClick(View v) {
                 if(!ChangeColor) {
-                    holder.buttonname.setBackgroundColor(context.getResources().getColor(R.color.plum));
+                    holder.buttonname.setBackgroundColor(Color.RED);
                     ChangeColor=true;
                 }
                 else{
-                    holder.buttonname.setBackgroundColor(context.getResources().getColor(R.color.myblue));
+                    holder.buttonname.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
                     ChangeColor=false;
                 }
                     onClickListener.OnLongClick(v,position);

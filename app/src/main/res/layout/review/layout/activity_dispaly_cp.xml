@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.uiwidgettest.myreview.contentprovide.DispalyCP">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        android:layout_weight="3">
+  <TextView
+    android:id="@+id/display"
+    android:background="@color/halftransparent"
+    android:textColor="@color/mywhite"
+    android:textAppearance="@style/DisplayText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:layout_height="0dp">
+    <EditText
+        android:id="@+id/inputuri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/getdatafromCP"
+        android:layout_margin="20dp"
+        android:background="@drawable/review_button_selector"
+        android:textColor="@color/mywhite"
+        android:text="以Uri从内容提供器中获取Data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

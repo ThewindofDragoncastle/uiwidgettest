@@ -1,4 +1,4 @@
-package com.example.uiwidgettest.myreview;
+package com.example.uiwidgettest.myreview.broadcast;
 
 import android.content.Intent;
 import android.net.Uri;

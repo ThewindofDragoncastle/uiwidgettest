@@ -1,4 +1,4 @@
-package com.example.uiwidgettest.myreview;
+package com.example.uiwidgettest.myreview.broadcast;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -19,6 +19,7 @@ import static android.content.Context.NOTIFICATION_SERVICE;
  */
 
 public class SendNotifaciation {
+    int i=0;
     public void send(Context context,String content,String title)
     {
         Toast.makeText(context,content,Toast.LENGTH_SHORT).show();
@@ -32,6 +33,7 @@ public class SendNotifaciation {
                 .setContentTitle(title);
         Notification notification=build.build();
         NotificationManager manager=(NotificationManager)context. getSystemService(NOTIFICATION_SERVICE);
-        manager.notify(1,notification);
+        manager.notify(i,notification);
+        i++;
     }
 }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.uiwidgettest.R;
+import com.example.uiwidgettest.thelight.gamble.Gamble;
 import com.example.uiwidgettest.thelight.tab.TabActivity;
 
 public class thelightintergration extends AppCompatActivity implements View.OnClickListener{
@@ -21,6 +22,9 @@ public class thelightintergration extends AppCompatActivity implements View.OnCl
             icl.setOnClickListener(this);
             Button tabs=(Button)findViewById(R.id.IntoTabs);
             tabs.setOnClickListener(this);
+            Button gamble=(Button)findViewById(  R.id.IntoGamble);
+            gamble.setOnClickListener(this);
+
         }
 
         @Override
@@ -35,6 +39,9 @@ public class thelightintergration extends AppCompatActivity implements View.OnCl
                     startActivity(intent);
                     break;
                 case R.id.IntoTabs:intent=new Intent(this, TabActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.IntoGamble:intent=new Intent(this, Gamble.class);
                     startActivity(intent);
                     break;
             }

@@ -9,12 +9,13 @@
         android:layout_height="match_parent">
 <TextView
     android:id="@+id/introduce"
+    android:textAppearance="@style/DisplayText"
     android:layout_width="0dp"
     android:layout_weight="3"
     android:layout_height="wrap_content" />
     <Button
         android:id="@+id/fulfill"
-        android:background="@color/myblue"
+        android:background="@drawable/review_button_selector"
         android:textColor="@color/mywhite"
         android:layout_margin="10dp"
         android:layout_width="0dp"

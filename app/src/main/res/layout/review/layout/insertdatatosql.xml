@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="名"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText" />
+        <EditText
+            android:id="@+id/congoment"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="字"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/energy"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="体"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/force"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="武"
+            android:maxLines="1"
+            android:inputType="number"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/wit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="智"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/loyal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="忠"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/virtue"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="德"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textAppearance="@style/ButtonText"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/genderman"
+            android:textColor="@color/myblue"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="男"
+            android:layout_weight="1" />
+        <RadioButton
+            android:id="@+id/genderfamale"
+            android:text="女"
+            android:textColor="@color/myblue"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+    <Button
+        android:text="确认添加"
+        android:id="@+id/sure"
+        android:layout_margin="20dp"
+        android:background="@drawable/review_button_selector"
+        android:textAppearance="@style/ButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="取消"
+        android:id="@+id/cancel"
+        android:layout_margin="20dp"
+        android:background="@android:color/holo_red_light"
+        android:textColor="@color/mywhite"
+        android:textAppearance="@style/ButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

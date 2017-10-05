@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.uiwidgettest.thelight.gamble.Gamble">
+ <TextView
+        android:id="@+id/gambledisplay"
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:layout_height="0dp" />
+<LinearLayout
+    android:layout_weight="3"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:ignore="NestedWeights">
+       <EditText
+            android:id="@+id/inputwei"
+            android:text="@string/thousand"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:inputType="number"
+            tools:ignore="NestedWeights" />
+        <Button
+            android:textColor="@color/mywhite"
+            android:text="支援金"
+            android:id="@+id/goldwei"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:background="@color/myblue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:textColor="@color/mywhite"
+            android:text="支援银"
+            android:id="@+id/silverwei"
+            android:layout_gravity="center"
+            android:background="@color/myblue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <EditText
+            android:layout_margin="10dp"
+            android:text="@string/thousand"
+            android:id="@+id/inputshu"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:inputType="number" />
+        <Button
+            android:textColor="@color/mywhite"
+            android:text="支援金"
+            android:id="@+id/goldshu"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:background="@color/myblue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:textColor="@color/mywhite"
+            android:text="支援银"
+            android:id="@+id/silvershu"
+            android:layout_gravity="center"
+            android:background="@color/myblue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <EditText
+            android:layout_margin="10dp"
+            android:text="@string/thousand"
+            android:id="@+id/inputwu"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@null"
+            android:inputType="number" />
+        <Button
+            android:textColor="@color/mywhite"
+            android:text="支援金"
+            android:id="@+id/goldwu"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:background="@color/myblue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:textColor="@color/mywhite"
+            android:text="支援银"
+            android:id="@+id/silverwu"
+            android:layout_gravity="center"
+            android:background="@color/myblue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <EditText
+            android:layout_margin="10dp"
+            android:text="@string/thousand"
+            android:id="@+id/convertmount"
+            android:hint="兑换比例1:500"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@null"
+            android:inputType="number" />
+        <Button
+            android:textColor="@color/mywhite"
+            android:text="兑换金"
+            android:id="@+id/convertgold"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:background="@color/myblue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:textColor="@color/mywhite"
+            android:text="兑换银"
+            android:id="@+id/convertsilver"
+            android:layout_gravity="center"
+            android:background="@color/myblue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <Button
+            android:textColor="@color/mywhite"
+            android:text="神奇的手指"
+            android:id="@+id/fraud"
+            android:layout_gravity="center"
+            android:background="@color/myblue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

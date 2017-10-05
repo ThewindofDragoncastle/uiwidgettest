@@ -6,5 +6,6 @@
     <color name="plum">#870fc937</color>
     <color name="green">#00fa32</color>
     <color name="mywhite">#ffffff</color>
-    <color name="myblue">#06a7f2</color>
+    <color name="myblue">#2fd519</color>
+    <color name="halftransparent">#64000000</color>
 </resources>
