@@ -21,6 +21,7 @@
     <application xmlns:tools="http://schemas.android.com/tools"
         android:name=".MyApplication"
         android:allowBackup="true"
+        android:fullBackupContent="false"
         android:icon="@mipmap/apppicture"
         android:label="无所不能的涛"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -35,7 +36,8 @@
             <intent-filter>
                 <action
                     android:name="android.intent.action.MAIN"
-                    android:label="活动功能集合界面"
+                    android:icon="@drawable/apppicture"
+                    android:label="无所不能的涛"
                     android:launchMode="singleTask" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -293,19 +295,34 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name=".thelight.tab.Poppop"
-            android:theme="@style/Theme.AppCompat.Dialog" />
         <activity android:name=".thelight.gamble.Gamble" />
-        <activity android:name=".myreview.DisplayData" />
+        <activity android:name=".myreview.DisplayData"
+            android:launchMode="singleTask"/>
 
         <provider
             android:name=".myreview.contentprovide.HeroContentProvider"
             android:authorities="com.example.uiwidgettest.heroprovider"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="true" />
 
-        <activity android:name=".myreview.contentprovide.DispalyCP"></activity>
+        <activity android:name=".myreview.contentprovide.DispalyCP" />
+
+        <service
+            android:name=".myreview.service.PlayService"
+            android:exported="false" />
+
+        <activity android:name=".myreview.service.PlayMusicWithService" />
+
+        <receiver
+            android:name=".myreview.broadcast.MusicPause"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.uiwidgettest.BACKMUSIC"/>
+                <action android:name="com.example.uiwidgettest.PAUSEMUSIC"/>
+                <action android:name="com.example.uiwidgettest.FORWARDMUSIC"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

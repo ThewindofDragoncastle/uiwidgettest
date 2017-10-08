@@ -1,5 +1,6 @@
 package com.example.uiwidgettest.broadcast;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.uiwidgettest.FunctionIntegration;
 import com.example.uiwidgettest.R;
+import com.example.uiwidgettest.broadcast.seivice.ReceiveDatantentService;
 
 public class BroadcastIntegration extends AppCompatActivity {
     EditText editText;
@@ -16,7 +19,8 @@ public class BroadcastIntegration extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_broadcast_integration);
-
+        Intent serviceIntent=new Intent(BroadcastIntegration.this,ReceiveDatantentService.class);
+        startService(serviceIntent);
         Button button=(Button)findViewById(R.id.MonitorChange);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

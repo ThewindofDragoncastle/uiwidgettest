@@ -61,7 +61,7 @@ public class EditSQLdatabase extends Fragment implements View.OnClickListener,On
          databaseR=heroDatabase.getReadableDatabase();
          databaseW=heroDatabase.getWritableDatabase();
         TextView displaySQL=(TextView)view.findViewById(R.id.ReviewdisplaySQL);
-        displaySQL.setText("数据库数据:\n"+sqLhelper.getSqlContent(databaseR));
+        displaySQL.setText("两个碎片\n1.图形化管理数据库\n2.添加数据\n"+"数据库数据:\n"+sqLhelper.getSqlContent(databaseR));
         recyclerView=(RecyclerView) view.findViewById(R.id.fragmentlist);
         Button iwanttoinsert=(Button)view.findViewById(R.id.iwanttoinsert);
         iwanttoinsert.setOnClickListener(this);

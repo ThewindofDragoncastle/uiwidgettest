@@ -7,7 +7,7 @@ import android.content.Intent;
 /**
  * Created by 40774 on 2017/9/30.
  */
-
+//接收充电响应
 public class MyBroadcast extends BroadcastReceiver
 {
     @Override

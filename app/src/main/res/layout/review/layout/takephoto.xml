@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/takephoto"
+        android:textColor="@color/mywhite"
+        android:text="拍照"
+        android:layout_margin="10dp"
+        android:background="@drawable/review_button_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/selectphoto"
+        android:textColor="@color/mywhite"
+        android:text="从本地选择"
+        android:layout_margin="10dp"
+        android:background="@drawable/review_button_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <include layout="@layout/display"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_weight="2"
+        android:layout_height="0dp">
+        <View
+            android:layout_width="1dp"
+            android:layout_gravity="start"
+            android:background="@color/myblue"
+            android:layout_height="match_parent"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_gravity="end"
+            android:background="@color/myblue"
+            android:layout_height="match_parent"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:background="@color/myblue"
+            android:layout_height="1dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_gravity="top"
+            android:background="@color/myblue"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:text="你还未拍摄照片或者选择图片"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/myphoto"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside" />
+    </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

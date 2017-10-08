@@ -12,6 +12,7 @@
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
     <Button
         android:id="@+id/toolbarback"
+        android:visibility="gone"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="start"
@@ -33,7 +34,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/wohenwudi"
+            android:text="前行潜心"
             android:textColor="@android:color/white"
             android:textSize="20sp"/>
     </LinearLayout>
@@ -42,6 +43,7 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:src="@drawable/signin"
+            android:visibility="gone"
             android:contentDescription="@string/app_name"
             android:layout_gravity="end"
             android:paddingTop="16dp"

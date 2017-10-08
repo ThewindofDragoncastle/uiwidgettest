@@ -26,8 +26,6 @@ public class FunctionIntegration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent serviceIntent=new Intent(FunctionIntegration.this,ReceiveDatantentService.class);
-        startService(serviceIntent);
 //初始化应用 一打开应用就初始化内容提供器 的数据库。
         CreatTable();
         setContentView(R.layout.activity_function_integration);

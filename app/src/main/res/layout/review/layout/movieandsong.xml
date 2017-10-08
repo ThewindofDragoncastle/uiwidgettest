@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <include layout="@layout/display"/>
+    <android.support.v7.widget.RecyclerView
+        android:scrollbars="vertical"
+        android:id="@+id/reclyer"
+        android:layout_width="match_parent"
+        android:layout_weight="5"
+        android:layout_height="0dp"/>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    <EditText
+        android:id="@+id/input"
+        android:hint="未输入进行“查找全文”"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_margin="10dp"
+        android:maxLines="1"
+        android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/scout"
+            android:text="查看"
+            android:textColor="@color/mywhite"
+            android:background="@drawable/review_button_selector"
+            android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/stop"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/closer"
+        android:elevation="8dp"
+        app:backgroundTint="@color/mywhite" />
+    </android.support.design.widget.CoordinatorLayout>

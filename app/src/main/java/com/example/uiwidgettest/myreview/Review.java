@@ -1,18 +1,25 @@
 package com.example.uiwidgettest.myreview;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.uiwidgettest.MyLog;
 import com.example.uiwidgettest.R;
 import com.example.uiwidgettest.myreview.broadcast.SendNotifaciation;
@@ -23,6 +30,8 @@ import com.example.uiwidgettest.myreview.contentprovide.SQLhelper;
 import com.example.uiwidgettest.myreview.json.Hero;
 import com.example.uiwidgettest.myreview.json.JsontoString;
 import com.example.uiwidgettest.myreview.json.StringtoJson;
+import com.example.uiwidgettest.myreview.service.GetConnectionService;
+import com.example.uiwidgettest.myreview.service.PlayService;
 
 import org.json.JSONArray;
 
@@ -46,8 +55,8 @@ private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       initView();
-
+         initView();
+        Requestpermission();
         intentFilter=new IntentFilter();
         intentFilter.addAction("com.example.uiwidgettest.SENDNOTIFICATION");
         localBroadcastManager=LocalBroadcastManager.getInstance(this);
@@ -76,6 +85,11 @@ private RecyclerView recyclerView;
         addname("建立数据库，升级数据库，查询数据库，可删除修改增添");
         addname("查看内容提供器的所有接口，以及说明");
         addname("拍摄照片或者选择照片");
+        addname("获取访问SD卡权限，获取缓存的歌曲或视频信息，加载到屏幕中。用户可直接查找整个SD卡或" +
+                "指定目录的MP3、MP4格式的文件，并且分类列出。歌曲电影列表点击播放实现后台服务自动播放，" +
+                "并且以静态广播的形式对用户在通知界面的点击做出反应。后台服务可以自动循环播放，播放下一首" +
+                "歌曲。");
+        addname("~~~~~~~~~");
     }
 
     @Override
@@ -135,6 +149,31 @@ private RecyclerView recyclerView;
         text.setText(introduce);
         buttonAndTexts.add(text);
     }
+    private boolean Requestpermission()
+    {
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            if(Build.VERSION.SDK_INT>=23)
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+            return false;
+        }
+        else
+            return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch (requestCode)
+        {
+            case 1:
+                if(grantResults.length>0&&grantResults[0]!=PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "拒绝权限将无法使用此功能。", Toast.LENGTH_SHORT).show();
+                   finish();
+                }
+                break;
+        }
+    }
 
     @Override
     public void OnClick(View v, int postion) {
@@ -178,6 +217,20 @@ private RecyclerView recyclerView;
                 break;
             case  6:
                 intent=new Intent(this,DispalyCP.class);
+                startActivity(intent);
+                break;
+            case  7:
+                intent=new Intent(this,DisplayData.class);
+                intent.putExtra("display",false);
+                intent.putExtra("photo",true);
+                startActivity(intent);
+                break;
+            case  8:
+                intent=new Intent(this,PlayService.class);
+                startService(intent);
+                intent=new Intent(this,DisplayData.class);
+                intent.putExtra("display",false);
+                intent.putExtra("moviesong",true);
                 startActivity(intent);
                 break;
         }

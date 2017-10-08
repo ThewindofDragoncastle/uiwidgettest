@@ -23,17 +23,19 @@ import com.example.uiwidgettest.myreview.contentprovide.HeroDatabase;
 import com.example.uiwidgettest.myreview.contentprovide.InsertDatatoSQL;
 import com.example.uiwidgettest.myreview.contentprovide.SQLhelper;
 import com.example.uiwidgettest.myreview.json.Hero;
+import com.example.uiwidgettest.myreview.media.PlayMovieSong;
+import com.example.uiwidgettest.myreview.media.TakeSelectPhoto;
 
 public class DisplayData extends AppCompatActivity implements CutFragment {
     private final String  TAG="DisplayData:";
     private TextView displaydata;
     private FrameLayout linearLayout;
-    private TextView displaySQL;
     private InsertDatatoSQL insertDatatoSQL;
     private EditSQLdatabase editSQLdatabase;
+    private TakeSelectPhoto takeSelectPhoto;
+    private PlayMovieSong playMovieSong;
     //是否切换碎片
-    private Button iwanttoinsert;
-    private FrameLayout frameLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +48,6 @@ private void initView()
     setContentView(R.layout.activity_display_data);
     linearLayout=(FrameLayout)findViewById(R.id.reviewfragmentLinearLayout);
     displaydata=(TextView)findViewById(R.id.MyreviewdisplayData);
-
-    frameLayout=(FrameLayout)findViewById(R.id.ReviewFragment);
-//    iwanttoinsert=(Button)findViewById(R.id.iwanttoinsert);
-//    iwanttoinsert.setOnClickListener(this);
     //初始化两个碎片
     insertDatatoSQL=new InsertDatatoSQL();
     editSQLdatabase = (EditSQLdatabase)
@@ -57,6 +55,16 @@ private void initView()
     //确定显示的内容是字符串还是碎片
     if(!getIntent().getBooleanExtra("display",false)) {
         displaydata.setVisibility(View.GONE);
+        if(getIntent().getBooleanExtra("photo",false))
+        {
+            takeSelectPhoto=new TakeSelectPhoto();
+            replacefragment(editSQLdatabase,takeSelectPhoto);
+        }
+        if(getIntent().getBooleanExtra("moviesong",false))
+        {
+            playMovieSong=new PlayMovieSong();
+            replacefragment(editSQLdatabase,playMovieSong);
+        }
     }
     else {
         displaydata.setText(getIntent().getStringExtra("stringtojson"));
@@ -79,6 +87,10 @@ private void initView()
 
     public InsertDatatoSQL getInsertDatatoSQL() {
         return insertDatatoSQL;
+    }
+
+    public TakeSelectPhoto getTakeSelectPhoto() {
+        return takeSelectPhoto;
     }
 
     @Override

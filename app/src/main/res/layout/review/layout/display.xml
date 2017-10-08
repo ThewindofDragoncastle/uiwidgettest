@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/parentdisplay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="100dp">
+        <TextView
+            android:id="@+id/display"
+            android:textColor="@color/mywhite"
+            android:background="@color/halftransparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </ScrollView>
+    <Button
+        android:id="@+id/hide"
+        android:layout_margin="10dp"
+        android:background="@drawable/review_button_selector"
+        android:textColor="@color/mywhite"
+        android:text="隐藏"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
