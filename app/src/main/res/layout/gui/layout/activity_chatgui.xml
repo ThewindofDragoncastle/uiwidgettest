@@ -4,13 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
+    <include layout="@layout/logintoolbar"/>
+    <TextView
+        android:id="@+id/getmoreData"
+        android:textColor="@color/myblue"
+        android:text="下滑获取更多记录"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:background="@color/green"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
     <!--父布局-->
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/reclyer2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent"
+        />
+    </android.support.v4.widget.SwipeRefreshLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

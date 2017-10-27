@@ -130,7 +130,7 @@ finally {
     @Override
     protected void onProgressUpdate(Integer... values) {
         //        更新进程
-        Log.d("DownloadTask:","以此代码返回值更新进度条成功");
+//        Log.d("DownloadTask:","以此代码返回值更新进度条成功");
         int progress=values[0];
         if(progress>lastprogress) {
             downloadListener.onProgress(progress);

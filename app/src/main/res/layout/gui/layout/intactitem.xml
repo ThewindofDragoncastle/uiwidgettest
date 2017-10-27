@@ -12,7 +12,6 @@
 <ImageView
     android:id="@+id/IntactImage"
     android:layout_alignParentLeft="true"
-
     android:scaleType="centerCrop"
     android:layout_width="20dp"
     android:layout_height="20dp" />

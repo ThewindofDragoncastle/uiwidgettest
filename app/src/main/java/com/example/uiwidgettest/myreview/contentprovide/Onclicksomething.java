@@ -9,6 +9,6 @@ import java.util.IdentityHashMap;
  */
 //回调接口 处理点击编辑或者删除 回调到主页面数据库执行
 public interface Onclicksomething {
-    boolean delete(int Id);
-    void confirm(Hero hero,int Id);
+    boolean delete(int Id,int position);
+    void confirm(Hero hero,int Id,int position);
 }

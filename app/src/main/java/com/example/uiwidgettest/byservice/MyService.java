@@ -41,7 +41,7 @@ public class MyService extends Service {
         Intent intent=new Intent(this,chatgui.class);
         PendingIntent pendingIntent=PendingIntent.getActivity(this,0,intent,0);
         Notification notification=new NotificationCompat.Builder(this)
-                .setContentTitle("前台服务运行中").setContentText("This a forebackground service!")
+                .setContentTitle("前台服务运行中").setContentText("This a forebackground activityView!")
                 .setAutoCancel(true).setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.mipmap.apppicture).setLargeIcon(BitmapFactory.decodeResource(getResources(),R.mipmap.apppicture))
                 .setContentIntent(pendingIntent).build();

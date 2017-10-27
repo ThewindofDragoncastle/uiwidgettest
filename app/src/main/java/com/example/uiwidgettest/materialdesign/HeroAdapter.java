@@ -1,5 +1,6 @@
 package com.example.uiwidgettest.materialdesign;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,6 +32,7 @@ import java.util.List;
 
 public class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.ViewHolder> {
     private Context context;
+    private Activity activity;
     private final int IMAGEUSEURL=1;
 
     static  class ViewHolder extends RecyclerView.ViewHolder
@@ -82,13 +84,21 @@ private List<Hero> mHeroList;
               final URL url=hero.getUrl();
               File file=new File( Environment.getExternalStorageDirectory()+File.separator
                       +"开发专用文件夹"+File.separator+"app使用图片"+url.toString().substring(url.toString().lastIndexOf("/")));
+            if (!file.exists())
               new Thread(new Runnable() {
                   @Override
                   public void run() {
                       ForDownload forDownload=new ForDownload();
                       {
-                          if(forDownload.Download(url)==0)
-                          Toast.makeText(MyApplication.getContext(), "从网络上获取资源失败！", Toast.LENGTH_SHORT).show();
+                          if (forDownload.Download(url) == 0) {
+                              activity.runOnUiThread(new Runnable() {
+                                  @Override
+                                  public void run() {
+                                      Toast.makeText(MyApplication.getContext(), "从网络上获取资源失败！", Toast.LENGTH_SHORT).show();
+                                  }
+                              });
+
+                          }
                       }
                   }
               }).start();
@@ -105,5 +115,8 @@ private List<Hero> mHeroList;
     public int getItemCount() {
         return mHeroList.size();
     }
-
+    public void setActivity(Activity activity)
+    {
+        this.activity=activity;
+    }
 }

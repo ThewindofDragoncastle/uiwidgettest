@@ -1,16 +1,22 @@
 package com.example.uiwidgettest.ui.sendorrecieve;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by 40774 on 2017/9/5.
  */
 
 public class Intact {
     private String name;
-    private Boolean unread;
+    private Boolean unread=false;
     private String  time;
+    @SerializedName("image")
     private int intractimage;
     private int online;
-
+    @SerializedName("target")
+    private String targetaccount;
+    @SerializedName("current")
+    private String currentaccount;
     public int getIntractimage() {
         return intractimage;
     }
@@ -26,9 +32,6 @@ public class Intact {
     public void setOnline(int online) {
         this.online = online;
     }
-
-    private String targetaccount;
-    private String currentaccount;
 
     public Intact(String currentaccount,String targetaccount)
     {

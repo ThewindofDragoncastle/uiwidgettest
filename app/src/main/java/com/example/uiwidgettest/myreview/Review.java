@@ -19,18 +19,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.uiwidgettest.MyLog;
 import com.example.uiwidgettest.R;
 import com.example.uiwidgettest.myreview.broadcast.SendNotifaciation;
 import com.example.uiwidgettest.myreview.contentprovide.DispalyCP;
-import com.example.uiwidgettest.myreview.contentprovide.GetDataFromCP;
 import com.example.uiwidgettest.myreview.contentprovide.HeroDatabase;
 import com.example.uiwidgettest.myreview.contentprovide.SQLhelper;
 import com.example.uiwidgettest.myreview.json.Hero;
 import com.example.uiwidgettest.myreview.json.JsontoString;
 import com.example.uiwidgettest.myreview.json.StringtoJson;
-import com.example.uiwidgettest.myreview.service.GetConnectionService;
+import com.example.uiwidgettest.myreview.mediaplayer.view.activity.BufferMediaplayer;
 import com.example.uiwidgettest.myreview.service.PlayService;
 
 import org.json.JSONArray;
@@ -89,6 +87,7 @@ private RecyclerView recyclerView;
                 "指定目录的MP3、MP4格式的文件，并且分类列出。歌曲电影列表点击播放实现后台服务自动播放，" +
                 "并且以静态广播的形式对用户在通知界面的点击做出反应。后台服务可以自动循环播放，播放下一首" +
                 "歌曲。");
+        addname("网络播放视频");
         addname("~~~~~~~~~");
     }
 
@@ -231,6 +230,10 @@ private RecyclerView recyclerView;
                 intent=new Intent(this,DisplayData.class);
                 intent.putExtra("display",false);
                 intent.putExtra("moviesong",true);
+                startActivity(intent);
+                break;
+            case  9:
+                intent=new Intent(this,BufferMediaplayer.class);
                 startActivity(intent);
                 break;
         }

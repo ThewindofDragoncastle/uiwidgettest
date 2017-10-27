@@ -92,14 +92,14 @@ public class EditSQLdatabase extends Fragment implements View.OnClickListener,On
     }
     boolean Isdelete=false;
     @Override
-    public boolean delete(final int Id) {
+    public boolean delete(final int Id, final int position) {
 
         new AlertDialog.Builder(getContext()).setTitle("").setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                databaseW.delete("hero","id=?",new String[]{(Id+1)+""});
-                alist.remove(Id);
-                arrayAdapter.notifyItemRemoved(Id);
+                databaseW.delete("hero","id=?",new String[]{Id+""});
+                alist.remove(position);
+                arrayAdapter.notifyItemRemoved(position);
                 Isdelete=true;
             }
         }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -107,14 +107,14 @@ public class EditSQLdatabase extends Fragment implements View.OnClickListener,On
             public void onClick(DialogInterface dialog, int which) {
 
             }
-        }).setTitle("你确定删除第"+(Id+1)+"的数据吗？")
+        }).setTitle("你确定删除数据库第"+Id+"行的数据吗？")
                 .show();
         return Isdelete;
     }
 
     @Override
-    public void confirm(Hero hero1,int Id) {
-        sqLhelper.Update(databaseW,hero1,Id+1);
+    public void confirm(Hero hero1,int id,int position) {
+        sqLhelper.Update(databaseW,hero1,position+1);
         Hero hero=new Hero();
         hero.setName(hero1.getName());
         hero.setCognomen(hero1.getCognomen());
@@ -124,10 +124,11 @@ public class EditSQLdatabase extends Fragment implements View.OnClickListener,On
         hero.setGender(hero1.getGender());
         hero.setVirtue(hero1.getVirtue());
         hero.setLoyal(hero1.getLoyal());
-        hero.setId(Id+1);
-        alist.remove(Id);
-        alist.add(Id,hero);
-        arrayAdapter.notifyItemChanged(Id);
+        hero.setId(id);
+        sqLhelper.Update(databaseW,hero,id);
+        alist.remove(position);
+        alist.add(position,hero);
+        arrayAdapter.notifyItemChanged(position);
     }
 }
 

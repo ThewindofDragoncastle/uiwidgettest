@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.uiwidgettest.myreview.mediaplayer.view.activity.BufferMediaplayer">
+    <EditText
+        android:id="@+id/ipinput"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:hint="请填入数据"
+        android:background="@null"
+        android:maxLines="1"
+        android:layout_height="50dp" />
+    <LinearLayout
+        android:id="@+id/linearlayout1"
+        android:padding="20dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/displayprogress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/PlayandDownload"
+        android:background="@drawable/review_button_selector"
+        android:textColor="@android:color/white"
+        android:text="下载"
+        android:layout_margin="20dp" android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/linearlayout2"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/pauseDownload"
+            android:background="@drawable/review_button_selector"
+            android:textColor="@android:color/white"
+            android:text="暂停下载"
+            android:layout_margin="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/CancelDownload"
+            android:background="@drawable/review_button_selector"
+            android:textColor="@android:color/white"
+            android:text="取消下载"
+            android:layout_margin="20dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

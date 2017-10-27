@@ -31,6 +31,7 @@ android {
                                     'src/main/res/layout/filesave',
                                     'src/main/res/layout/multimedia',
                                     'src/main/res/layout-large/fragment',
+                                    'src/main/res/layout/updatechat',
                                     'src/main/res/layout/byinternet',
                                     'src/main/res/layout/contentp',
                                     'src/main/res/layout/usebaidumap',
@@ -38,6 +39,8 @@ android {
                                     'src/main/res/layout-large/news',
                                     'src/main/res/layout/news',
                                     'src/main/res/layout/review',
+                                    'src/main/res/layout/framework',
+                                    'src/main/res/layout/eventbus',
                                     'src/main/res/layout',
                                     'src/main/res/layout-large',
                                     'src/main/res'
@@ -46,7 +49,7 @@ android {
             }
 
 }
-
+apply plugin: 'com.neenbedankt.android-apt'
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -66,5 +69,10 @@ dependencies {
     compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:percent:24.2.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.5'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'org.greenrobot:eventbus:3.1.0-RC'
+    compile 'com.jakewharton:butterknife:8.4.0'
     testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

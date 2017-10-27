@@ -134,6 +134,7 @@ private void LoadRecyclerView()
     GridLayoutManager gridLayoutManager=new GridLayoutManager(this,3);
     recyclerView.setLayoutManager(gridLayoutManager);
    adapter =new HeroAdapter(heroArrayList);
+    adapter.setActivity(this);
     recyclerView.setAdapter(adapter);
     FloatingActionButton actionButton=(FloatingActionButton)findViewById(R.id.floatactionbutton);
     actionButton.setOnTouchListener(new View.OnTouchListener() {

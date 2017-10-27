@@ -18,7 +18,7 @@ import com.example.uiwidgettest.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetContactMessage extends AppCompatActivity {
+public class  GetContactMessage extends AppCompatActivity {
     ArrayAdapter<String> viewAdapter;
   List<String> message;
     @Override

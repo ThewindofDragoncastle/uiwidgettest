@@ -139,9 +139,13 @@ public class TakeSelectPhoto extends Fragment implements CutFragment,View.OnClic
                     Glide.with(this).load(file1).into(photo);
                 break;
             case SELECT_PHOTO:
-                Uri uri=data.getData();
+
                 if(resultCode==RESULT_OK)
+                {
+                    Uri uri=data.getData();
                     Glide.with(this).load(uri).into(photo);
+                }
+
                 break;
         }
     }

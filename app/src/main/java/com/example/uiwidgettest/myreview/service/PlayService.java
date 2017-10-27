@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
+import android.media.TimedText;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -26,14 +27,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 //播放音乐
-public class PlayService extends IntentService implements MusicStatusListener{
+public class PlayService extends IntentService implements MusicStatusListener,MediaPlayer.OnCompletionListener,MediaPlayer.OnErrorListener{
     private String TAG="服务：";
     private int songsindex=-1;
     private MediaPlayer player;
     private List<SongorMovie> songorMovies;
     private RemoteViews views;
     private SongorMovie songorMovie;
-    private  Timer timer;
     NotificationCompat.Builder builder;
     private MusicStatusListener statusListener=this;
     private static String Sys="同步块";
@@ -41,6 +41,13 @@ public class PlayService extends IntentService implements MusicStatusListener{
         super("后台播放音乐");
     }
     private MusicBinder binder=new MusicBinder();
+    private TimerTask task=new TimerTask() {
+        @Override
+        public void run() {
+            sendNotifycation("",(int)(player.getCurrentPosition()/(double)player.getDuration()));
+        }
+    };
+    private  Timer timer;
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
         MyLog.d(TAG,"服务开始");
@@ -50,6 +57,7 @@ public class PlayService extends IntentService implements MusicStatusListener{
     @Override
     protected void onHandleIntent(Intent intent) {
         //处理播放任务
+        player=new MediaPlayer();
             try {
                 while (true)
                 {
@@ -59,42 +67,34 @@ public class PlayService extends IntentService implements MusicStatusListener{
                         Sys.wait();
                     }
                     MyLog.d(TAG,"播放线程进入启动。");
-                    player=new MediaPlayer();
                     player.setDataSource(songorMovie.getPath());
                     player.prepare();
+                    player.setOnCompletionListener(this);
                     player.start();
-                    //播放开始每隔0.5秒监视一次歌曲状态
-
-                   final TimerTask timerTask=new TimerTask() {
+                    player.setOnErrorListener(this);
+                    timer=new Timer();
+                    task=new TimerTask() {
                         @Override
                         public void run() {
-                            int total=player.getDuration();
-                            int current=player.getCurrentPosition();
-                            int jindu=total-current;
-                            //
-                            MyLog.d(TAG,"进度："+jindu);
-                            double jindupercent=(double)(current)/total*100;
-                            sendNotifycation(songorMovie.getName(),(int)jindupercent);
-                            if(timer!=null&&
-                                    jindu<200)
-                            {
-                                //进度小于0.2秒就默认满了切换下一首
+                            double f=player.getCurrentPosition()/(double)player.getDuration();
+                            if(f>0.99)
                                 forward();
-                            }
+                            sendNotifycation(songorMovie.getName(),(int)(f*100));
                         }
                     };
-                    timer=new Timer();
-                    timer.schedule(timerTask,0,500);
+                    timer.schedule(task,0,500);
+                    //播放开始每隔0.5秒监视一次歌曲状态
                     sendNotifycation(songorMovie.getName(),1);
                     synchronized (Sys) {
                         MyLog.d(TAG, "播放中线程进入等待。");
                         Sys.wait();
                     }
                     MyLog.d(TAG, "等待被唤醒更新进度取消");
-                    timer.cancel();
                     if(player.isPlaying())
                         player.stop();
-                    player.release();
+                    player.reset();
+                    timer.cancel();
+                    task.cancel();
                 }
                 } catch (IOException e) {
                     MyLog.d(TAG,"文件找不到");
@@ -125,7 +125,7 @@ public class PlayService extends IntentService implements MusicStatusListener{
             player.pause();
         else
             player.start();
-          changeButton();
+            changeButton();
     }
 
     @Override
@@ -163,7 +163,21 @@ public class PlayService extends IntentService implements MusicStatusListener{
 
     }
 
-   public class MusicBinder extends Binder
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+        //完成回调
+        MyLog.d(TAG,"完成播放");
+//        forward();
+    }
+    @Override
+    public boolean onError(MediaPlayer mp, int what, int extra) {
+        sendNotifycation("出错了！！",1);
+        stopSelf();
+        return true;
+    }
+
+
+    public class MusicBinder extends Binder
     {
         public void setArray(List<SongorMovie> songorMovie)
         {
@@ -213,7 +227,7 @@ public class PlayService extends IntentService implements MusicStatusListener{
             builder.setContentIntent(pendingIntent);
         }
         views.setProgressBar(R.id.progressbar, 100, progress, false);
-        if (progress%6==0) {
+        if (progress%5==0) {
             if(songsindex<songorMovies.size()-1)
                 views.setTextViewText(R.id.displaytext, "下一首：" + songorMovies.get(songsindex + 1).getName());
             else if(songsindex==songorMovies.size()-1&&songsindex!=0)

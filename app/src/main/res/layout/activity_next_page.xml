@@ -26,6 +26,30 @@
         android:text="复习"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntotheFramework"
+        android:textColor="@color/colorPrimary"
+        android:text="框架"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntotheEventbus"
+        android:textColor="@color/colorPrimary"
+        android:text="事件总线"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntotheMVP"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/mvpdata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntotheUpdataChat"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/updataChat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

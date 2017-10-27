@@ -68,6 +68,7 @@ private void initView()
     }
     else {
         displaydata.setText(getIntent().getStringExtra("stringtojson"));
+        MyLog.d(TAG,getIntent().getStringExtra("stringtojson"));
         linearLayout.removeView(editSQLdatabase.getView());
     }
 }

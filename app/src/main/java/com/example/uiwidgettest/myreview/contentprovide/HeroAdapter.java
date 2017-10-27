@@ -251,7 +251,8 @@ class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.ViewHolder> {
         viewholder.wit.setText(hero.getWit() +"");
         viewholder.loyal.setText(hero.getLoyal()+"");
         viewholder.displayid.setText("第" + hero.getId()+ "条数据");
-        setOnclickListener(viewholder,position);
+        //并不是删除此处位置的东西而是在数据库的位置
+        setOnclickListener(viewholder,hero.getId(),position);
         if (hero.getGender())
             viewholder.genderman.setChecked(true);
         else
@@ -264,8 +265,7 @@ class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        int position=0;
-        boolean isExists=false;
+       int position=0;
        Button edit;
        Button delete;
        Button confirm;
@@ -310,7 +310,7 @@ class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.ViewHolder> {
         viewHolder.genderfamale.setEnabled(can);
         viewHolder.genderman.setEnabled(can);
     }
-        private void setOnclickListener(final ViewHolder viewholder, final int position)
+        private void setOnclickListener(final ViewHolder viewholder,final int id, final int position)
     {
         viewholder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -321,7 +321,7 @@ class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.ViewHolder> {
         viewholder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(onclicksomething.delete(position))
+                if(onclicksomething.delete(id,position))
                 setVisibility(viewholder,View.VISIBLE,View.GONE,View.GONE,View.GONE);
             }
         });
@@ -347,7 +347,7 @@ class HeroAdapter extends RecyclerView.Adapter<HeroAdapter.ViewHolder> {
                 hero.setLoyal(Integer.valueOf(viewholder.loyal.getText().toString()));
                 hero.setWit(Integer.valueOf(viewholder.wit.getText().toString()));
                 hero.setVirtue(Integer.valueOf(viewholder.virtue.getText().toString()));
-                onclicksomething.confirm(hero,position);
+                onclicksomething.confirm(hero,id,position);
                 setEnable(viewholder,false);
                 setVisibility(viewholder,View.VISIBLE,View.GONE,View.GONE,View.GONE);
             }

@@ -29,7 +29,7 @@
        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:cropToPadding="true"
-        android:src="@drawable/chl" />
+        android:src="@drawable/wjjsyds" />
     <TextView
         android:padding="10dp"
         android:text="@string/justafun"

@@ -239,7 +239,9 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".NextPage" />
+        <activity
+            android:name=".NextPage"
+            android:launchMode="singleInstance" />
         <activity android:name=".usebaidumap.BaidumapTextView" />
 
         <service
@@ -296,8 +298,9 @@
         </receiver>
 
         <activity android:name=".thelight.gamble.Gamble" />
-        <activity android:name=".myreview.DisplayData"
-            android:launchMode="singleTask"/>
+        <activity
+            android:name=".myreview.DisplayData"
+            android:launchMode="singleTask" />
 
         <provider
             android:name=".myreview.contentprovide.HeroContentProvider"
@@ -318,11 +321,24 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.example.uiwidgettest.BACKMUSIC"/>
-                <action android:name="com.example.uiwidgettest.PAUSEMUSIC"/>
-                <action android:name="com.example.uiwidgettest.FORWARDMUSIC"/>
+                <action android:name="com.example.uiwidgettest.BACKMUSIC" />
+                <action android:name="com.example.uiwidgettest.PAUSEMUSIC" />
+                <action android:name="com.example.uiwidgettest.FORWARDMUSIC" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".framework.rxjava.activity.RxJava" />
+        <activity android:name=".framework.eventbus.activity.MyEventBus" />
+        <activity android:name=".framework.mvp.activity.ViewTaobaoIP" />
+        <activity
+            android:name=".mvpupdatechat.view.activity.MainPage"
+            android:launchMode="singleInstance" />
+
+        <service
+            android:name=".mvpupdatechat.model.Service.RecieveData"
+            android:exported="false" />
+
+        <activity android:name=".myreview.mediaplayer.view.activity.BufferMediaplayer"></activity>
     </application>
 
 </manifest>

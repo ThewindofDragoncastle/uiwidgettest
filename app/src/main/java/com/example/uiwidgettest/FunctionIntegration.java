@@ -19,8 +19,14 @@ import com.example.uiwidgettest.filesave.FileSaveIntegration;
 import com.example.uiwidgettest.byinternet.InternetIntergration;
 import com.example.uiwidgettest.byservice.ServiceIntergration;
 import com.example.uiwidgettest.fragment.FragmentIntergration;
+import com.example.uiwidgettest.mvpupdatechat.bufferdata.Bufferdata;
 import com.example.uiwidgettest.ui.UIintegration;
 import com.example.uiwidgettest.mobilemultimedia.mobilemultimediaIntegration;
+import com.example.uiwidgettest.ui.sendorrecieve.Intact;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class FunctionIntegration extends AppCompatActivity {
 
     @Override
@@ -128,4 +134,5 @@ public class FunctionIntegration extends AppCompatActivity {
            MyLog.d("Functiongration:","聊天数据初始化完成");
         }
     }
+
 }

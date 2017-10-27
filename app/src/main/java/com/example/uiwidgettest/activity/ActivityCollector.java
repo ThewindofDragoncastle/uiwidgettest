@@ -16,7 +16,7 @@ public class ActivityCollector {
     {
         al.add(at);
     }
- public  static void removeActivity(Activity at)
+    public  static void removeActivity(Activity at)
  {
      al.remove(at);
  }

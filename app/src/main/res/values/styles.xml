@@ -17,10 +17,23 @@
         <item name="android:textSize">15sp</item>
         <item name="android:layout_gravity">center</item>
     </style>
+    <style name="RXJavaDisplayText">
+        <item name="android:textColor">@color/mywhite</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
     <style name="EditTextText">
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">15sp</item>
         <item name="android:editTextColor">@android:color/holo_purple</item>
         <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="MyHoloBluestyleforHint">
+        <item name="android:textColor">@android:color/holo_blue_light</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="MyHoloBluestyleforError">
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+        <item name="android:text">你的位数超过限制</item>
     </style>
 </resources>
