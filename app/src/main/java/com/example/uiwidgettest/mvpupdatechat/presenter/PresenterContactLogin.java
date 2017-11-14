@@ -3,7 +3,7 @@ package com.example.uiwidgettest.mvpupdatechat.presenter;
 /**
  * Created by 40774 on 2017/10/14.
  */
-//接口说明：例如 BaseModelService.LoginconnService.Callback
+//接口说明：例如 BaseModelService.LoginconnService.ChangeFragmentCallback
 //    它的作用是在基础登录模型层对媒介层进行回调
 //     BasePresenter.LoginPresenter.Down
 //    它所在的基础登录媒介层中对媒介层进行调用

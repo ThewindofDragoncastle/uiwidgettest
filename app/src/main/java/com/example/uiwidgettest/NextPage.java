@@ -14,6 +14,7 @@ import com.example.uiwidgettest.myreview.Review;
 import com.example.uiwidgettest.thelight.thelightintergration;
 import com.example.uiwidgettest.materialdesign.MDintergration;
 import com.example.uiwidgettest.usebaidumap.BaiduMapIntergration;
+import com.example.uiwidgettest.view.activity.ViewActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -25,6 +26,24 @@ public void StartActivity1()
     Intent intent=new Intent(this,ViewTaobaoIP.class);
     startActivity(intent);
 }
+    @OnClick(R.id.IntoDesignPattern)
+    public void StartActivity4()
+    {
+        Intent intent=new Intent(this, com.example.uiwidgettest.designpattern.activity.MainPage.class);
+        startActivity(intent);
+    }
+    @OnClick(R.id.IntoView)
+    public void StartActivity3()
+    {
+        Intent intent=new Intent(this,ViewActivity.class);
+        startActivity(intent);
+    }
+    @OnClick(R.id.IntoWindDragon)
+    public void StartActivity5()
+    {
+        Intent intent=new Intent(this, com.example.uiwidgettest.winddragonnews.activity.MainPage.class);
+        startActivity(intent);
+    }
 @OnClick(R.id.IntotheUpdataChat)
 public void StartActivity2()
 {

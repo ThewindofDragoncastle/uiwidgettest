@@ -1,10 +1,7 @@
-package com.example.uiwidgettest.mvpupdatechat.model.Service;
+package com.example.uiwidgettest.mvpupdatechat.model.service;
 
 
 import com.example.uiwidgettest.mvpupdatechat.bufferdata.Medbufferdata;
-import com.example.uiwidgettest.mvpupdatechat.presenter.PresenterContactLogin;
-import com.example.uiwidgettest.mvpupdatechat.presenter.PresenterContractChat;
-import com.example.uiwidgettest.mvpupdatechat.presenter.PresenterContractIntract;
 
 /**
  * Created by 40774 on 2017/10/15.

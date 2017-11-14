@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item android:title="用户信息">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/a12"
+                        android:title="我的收藏"
+                        android:icon="@drawable/task"/>
+                <item
+                    android:id="@+id/m1"
+                    android:title="我的信息"/>
+                </group>
+        </menu>
+        </item>
+        <item android:title="设置">
+            <menu>
+                <item
+                    android:id="@+id/clear"
+                    android:icon="@drawable/task"
+                    android:title="清空缓存">
+                </item>
+                <item
+                    android:id="@+id/spear"
+                    android:icon="@drawable/task"
+                    android:title="节省流量">
+                </item>
+         <item
+            android:id="@+id/mysetting"
+            android:icon="@drawable/task"
+            android:title="高级设置"/>
+            </menu>
+        </item>
+    <item
+        android:id="@+id/wantsay"
+        android:title="开发者想说的话.."
+        android:icon="@drawable/dream2"/>
+</menu>

@@ -1,4 +1,4 @@
-package com.example.uiwidgettest.mvpupdatechat.model.Service;
+package com.example.uiwidgettest.mvpupdatechat.model.service;
 
 import android.content.ComponentName;
 import android.content.ServiceConnection;

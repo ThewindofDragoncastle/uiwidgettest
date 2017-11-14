@@ -1,4 +1,4 @@
-package com.example.uiwidgettest.mvpupdatechat.model.Service;
+package com.example.uiwidgettest.mvpupdatechat.model.service;
 
 import android.app.IntentService;
 import android.content.Intent;
@@ -8,11 +8,7 @@ import android.support.annotation.Nullable;
 
 import com.example.uiwidgettest.MyLog;
 import com.example.uiwidgettest.mvpupdatechat.bufferdata.Medbufferdata;
-import com.example.uiwidgettest.mvpupdatechat.presenter.PresenterContactLogin;
-import com.example.uiwidgettest.mvpupdatechat.presenter.PresenterContractChat;
-import com.example.uiwidgettest.mvpupdatechat.presenter.PresenterContractIntract;
 import com.example.uiwidgettest.mvpupdatechat.view.activity.CurrentData;
-import com.example.uiwidgettest.mvpupdatechat.view.activity.Utils;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -74,7 +70,7 @@ public class RecieveData extends IntentService {
                callback.NetError();
         }
     }
- public  class ConnModel extends Binder implements com.example.uiwidgettest.mvpupdatechat.model.Service.Binder {
+ public  class ConnModel extends Binder implements com.example.uiwidgettest.mvpupdatechat.model.service.Binder {
 
 
      @Override

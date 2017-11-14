@@ -1,0 +1,82 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:title="显示一排偏好">
+            <CheckBoxPreference
+                android:key="checkbox_preference"
+                android:title="开关偏好"
+                android:summary="这是一个开关按钮" />
+        </PreferenceCategory>
+        <PreferenceCategory
+            android:title="基于对话框的偏好">
+            <EditTextPreference
+                android:key="edittext_preference"
+                android:title="文本输入偏好"
+                android:summary="使用一个文本框对话框"
+                android:dialogTitle="输入你的宠物" />
+        </PreferenceCategory>
+        <PreferenceCategory
+            android:title="启动偏好">
+            <PreferenceScreen
+                android:key="screen_preference"
+                android:title="屏幕"
+                android:summary="显示另一个偏好屏幕">
+
+                <!-- You can place more preferences here that will be shown on the next screen. -->
+
+                <CheckBoxPreference
+                    android:key="next_screen_checkbox_preference"
+                    android:title="开关偏好"
+                    android:summary="另一个屏幕上的偏好" />
+            </PreferenceScreen>
+
+            <PreferenceScreen
+                android:title="意图偏好"
+                android:summary="通过意图启动一个Activity">
+                <intent android:action="android.intent.action.VIEW"
+                    android:data="http://www.baidu.com" />
+            </PreferenceScreen>
+        </PreferenceCategory>
+        <PreferenceCategory
+            android:title="偏好属性">
+            <CheckBoxPreference
+                android:key="parent_checkbox_preference"
+                android:title="父开关"
+                android:summary="这是一个父开关" />
+            <CheckBoxPreference
+                android:key="child_checkbox_preference"
+                android:dependency="parent_checkbox_preference"
+                android:layout="?android:attr/preferenceLayoutChild"
+                android:title="子开关"
+                android:summary="这是一个子开关" />
+        </PreferenceCategory>
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="example_switch"
+        android:summary="@string/pref_description_social_recommendations"
+        android:title="@string/pref_title_social_recommendations" />
+
+    <!-- NOTE: EditTextPreference accepts EditText attributes. -->
+    <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="@string/pref_default_display_name"
+        android:inputType="textCapWords"
+        android:key="example_text"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_display_name" />
+
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+    <ListPreference
+        android:defaultValue="-1"
+        android:entries="@array/pref_example_list_titles"
+        android:entryValues="@array/pref_example_list_values"
+        android:key="example_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_add_friends_to_messages" />
+
+</PreferenceScreen>

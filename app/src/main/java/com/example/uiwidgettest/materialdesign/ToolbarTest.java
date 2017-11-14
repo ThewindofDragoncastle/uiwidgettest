@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -85,13 +86,14 @@ public class ToolbarTest extends AppCompatActivity {
 //        actionBar.setHomeAsUpIndicator(R.);
         refreshLayout=(SwipeRefreshLayout)findViewById(R.id.MDrefresh);
         refreshLayout.setColorSchemeResources(R.color.plum);
+        layout.openDrawer(Gravity.START);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 refreshHero();
             }
         });
-navigationView.setCheckedItem(R.id.nv_task);
+        navigationView.setCheckedItem(R.id.nv_task);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

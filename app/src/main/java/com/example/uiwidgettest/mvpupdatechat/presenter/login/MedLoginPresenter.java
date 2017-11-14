@@ -4,7 +4,7 @@ import com.example.uiwidgettest.MyLog;
 import com.example.uiwidgettest.framework.rxjava.useclass.RxBus;
 import com.example.uiwidgettest.mvpupdatechat.bufferdata.Bufferdata;
 import com.example.uiwidgettest.mvpupdatechat.json.HandleJson;
-import com.example.uiwidgettest.mvpupdatechat.model.Service.RecieveData;
+import com.example.uiwidgettest.mvpupdatechat.model.service.RecieveData;
 import com.example.uiwidgettest.mvpupdatechat.presenter.MedBasePresenter;
 import com.example.uiwidgettest.mvpupdatechat.presenter.PresenterContactLogin;
 

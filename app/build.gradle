@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -41,6 +42,9 @@ android {
                                     'src/main/res/layout/review',
                                     'src/main/res/layout/framework',
                                     'src/main/res/layout/eventbus',
+                                    'src/main/res/layout/viewactivity',
+                                    'src/main/res/layout/designpattern',
+                                    'src/main/res/layout/winddragonnews',
                                     'src/main/res/layout',
                                     'src/main/res/layout-large',
                                     'src/main/res'
@@ -48,9 +52,11 @@ android {
                 }
             }
 
+
 }
 //apply plugin: 'com.neenbedankt.android-apt'
 dependencies {
+    implementation 'com.android.support:support-vector-drawable:25.4.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

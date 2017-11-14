@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+    <TextView
+        android:id="@+id/displaytext"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp" />
+    </ScrollView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <Button
+            android:id="@+id/currentcomputer"
+            android:background="@drawable/review_button_selector"
+            android:text="当前电脑信息"
+            android:layout_margin="15dp"
+            android:textColor="@color/mywhite"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/choicecomputer"
+        android:background="@drawable/review_button_selector"
+        android:text="组装电脑"
+        android:layout_margin="15dp"
+        android:textColor="@color/mywhite"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

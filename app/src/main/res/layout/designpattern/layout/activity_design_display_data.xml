@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/FrameViewGroup"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.uiwidgettest.designpattern.activity.DesignDisplayData">
+<include layout="@layout/design_display"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatactionbutton"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="30dp"
+        android:src="@drawable/cute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:elevation="8dp"
+        app:backgroundTint="@color/mywhite" />
+</FrameLayout>

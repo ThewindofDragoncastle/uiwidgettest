@@ -7,7 +7,7 @@
     android:background="?attr/colorPrimary"
     android:layout_width="match_parent"
     android:textAlignment="center"
-    app:layout_scrollFlags="scroll|enterAlways"
+    app:layout_scrollFlags="scroll|snap"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
     <Button

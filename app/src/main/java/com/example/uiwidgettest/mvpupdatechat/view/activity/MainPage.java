@@ -12,8 +12,8 @@ import android.widget.Toast;
 import com.example.uiwidgettest.BaseActivity;
 import com.example.uiwidgettest.NextPage;
 import com.example.uiwidgettest.R;
-import com.example.uiwidgettest.mvpupdatechat.model.Service.ConnwithService;
-import com.example.uiwidgettest.mvpupdatechat.model.Service.RecieveData;
+import com.example.uiwidgettest.mvpupdatechat.model.service.ConnwithService;
+import com.example.uiwidgettest.mvpupdatechat.model.service.RecieveData;
 
 import com.example.uiwidgettest.mvpupdatechat.presenter.login.MedLoginPresenter;
 import com.example.uiwidgettest.mvpupdatechat.view.fragment.Chat;

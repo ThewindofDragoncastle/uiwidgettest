@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.uiwidgettest">
 
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -335,10 +336,15 @@
             android:launchMode="singleInstance" />
 
         <service
-            android:name=".mvpupdatechat.model.Service.RecieveData"
+            android:name=".mvpupdatechat.model.service.RecieveData"
             android:exported="false" />
-
-        <activity android:name=".myreview.mediaplayer.view.activity.BufferMediaplayer"></activity>
+        <activity android:name=".myreview.mediaplayer.view.activity.BufferMediaplayer" />
+        <activity android:name=".view.activity.ViewActivity" />
+        <activity android:name=".designpattern.activity.MainPage" />
+        <activity android:name=".designpattern.activity.DesignDisplayData" />
+        <activity android:name=".winddragonnews.activity.MainPage" />
+        <activity android:name=".winddragonnews.activity.Newsitem" />
+        <activity android:name=".winddragonnews.activity.SettingsActivity" />
     </application>
 
 </manifest>

@@ -31,6 +31,8 @@ public class PlayService extends IntentService implements MusicStatusListener,Me
     private String TAG="服务：";
     private int songsindex=-1;
     private MediaPlayer player;
+//    根据进度修改通知
+    private int change=0;
     private List<SongorMovie> songorMovies;
     private RemoteViews views;
     private SongorMovie songorMovie;
@@ -56,6 +58,7 @@ public class PlayService extends IntentService implements MusicStatusListener,Me
 
     @Override
     protected void onHandleIntent(Intent intent) {
+
         //处理播放任务
         player=new MediaPlayer();
             try {
@@ -79,7 +82,11 @@ public class PlayService extends IntentService implements MusicStatusListener,Me
                             double f=player.getCurrentPosition()/(double)player.getDuration();
                             if(f>0.99)
                                 forward();
-                            sendNotifycation(songorMovie.getName(),(int)(f*100));
+                            if(change!=(int)(f*100)) {
+//                                MyLog.d(TAG, "进度改变。");
+                                change = (int) (f * 100);
+                                sendNotifycation(songorMovie.getName(), change);
+                            }
                         }
                     };
                     timer.schedule(task,0,500);

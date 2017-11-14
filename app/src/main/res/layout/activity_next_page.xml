@@ -50,6 +50,24 @@
         android:text="@string/updataChat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoView"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/IntoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoDesignPattern"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/IntoDesignPattern"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/IntoWindDragon"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/IntoWindDragon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

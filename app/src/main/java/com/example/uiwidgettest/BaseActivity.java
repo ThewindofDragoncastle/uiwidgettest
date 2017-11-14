@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 public class BaseActivity extends AppCompatActivity {
-   static List<Activity> activities=new ArrayList<>();
+   private List<Activity> activities=new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,13 +26,14 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        MyLog.d("BaseActivity:","活动被摧毁");
         activities.remove(this);
     }
     public void ClearAll()
     {
         for(Activity activity:activities)
         {
-            if(!activity.isDestroyed())
+            if(activity!=null)
                 activity.finish();
         }
         activities.clear();

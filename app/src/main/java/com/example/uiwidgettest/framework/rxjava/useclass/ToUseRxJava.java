@@ -182,7 +182,7 @@ public class ToUseRxJava  {
                         .add("ip",ip)
                         .build();
                final Request request=new Request.Builder()
-                        .url("http://ip.taobao.com/activityView/getIpInfo.php")
+                        .url("http://ip.taobao.com/service/getIpInfo.php")
                         .post(body)
                         .build();
                 okhttp3.Call call=client.newCall(request);

@@ -34,7 +34,6 @@ public class TabActivity extends AppCompatActivity implements FloatActionButtonO
     private TabLayout tabLayout;
 
     //用来初始化文章
-    //
     private final int WRITETOSD=0;
     private FragmentAdapter adapter;
     private initArticle article=new initArticle();

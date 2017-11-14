@@ -25,7 +25,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class PullMethod extends AppCompatActivity {
-   private String finaldisplay="解析的网址：http://10.0.2.2/appinfo.xml";
+    private final String IP="http://39.108.123.220/陈宏林学习数据/appinfo.xml";
+   private String finaldisplay="解析的网址：http://39.108.123.220/陈宏林学习数据/appinfo.xml";
     StringBuffer display=new StringBuffer ("");
     TextView displayData;
     CheckBox checkBox;
@@ -58,12 +59,12 @@ public class PullMethod extends AppCompatActivity {
                     PHONE=true;
                 Request request;
                 if(PHONE) {
-                    finaldisplay="http://192.168.0.102/appinfo.xml";
-                    request = new Request.Builder().url("http://192.168.0.102/appinfo.xml").build();
+                    finaldisplay=IP;
+                    request = new Request.Builder().url(IP).build();
                 }
                 else {
-                    finaldisplay="http://10.0.2.2/appinfo.xml";
-                    request = new Request.Builder().url("http://10.0.2.2/appinfo.xml").build();
+                    finaldisplay=IP;
+                    request = new Request.Builder().url(IP).build();
                 }
                 try {
                     Response response=client.newCall(request).execute();
@@ -83,7 +84,7 @@ public class PullMethod extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                displayData.setText(finaldisplay+"\n未解析的数据："+display.toString());
+                displayData.setText(finaldisplay+"\n未解析的数据："+display.toString().trim());
             }
         });
     }
@@ -98,11 +99,11 @@ public class PullMethod extends AppCompatActivity {
             String name="";
             String version="";
             Log.d(getLocalClassName(),""+XmlPullParser.END_DOCUMENT);
+//            display.setLength(0);
             while(event!=XmlPullParser.END_DOCUMENT)
             {
                 String nodeName = pullParser.getName();
                 Log.d(getLocalClassName(),""+nodeName);
-                display.setLength(0);
                 switch (event)
                 {
                     case XmlPullParser.START_TAG:
@@ -122,6 +123,7 @@ public class PullMethod extends AppCompatActivity {
                 }
                 event = pullParser.next();
             }
+
 //            displayData.setText(display.toString());
         }catch (XmlPullParserException e)
         {

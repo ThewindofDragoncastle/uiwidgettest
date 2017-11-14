@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/displaytext"
+        android:textSize="18sp"
+        android:textColor="@color/mywhite"
+        android:background="@color/halftransparent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+    <RadioGroup
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/lenovo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/lenovo"
+            android:textColor="@color/colorPrimary" />
+        <RadioButton
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/Asus"
+            android:text="@string/Asus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/Hp"
+            android:text="@string/Hp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+    <Button
+        android:background="@drawable/review_button_selector"
+        android:layout_margin="20dp"
+        android:textColor="@color/mywhite"
+        android:id="@+id/confirm"
+        android:text="@string/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
