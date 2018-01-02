@@ -45,6 +45,7 @@ android {
                                     'src/main/res/layout/viewactivity',
                                     'src/main/res/layout/designpattern',
                                     'src/main/res/layout/winddragonnews',
+                                    'src/main/res/layout/mainpage',
                                     'src/main/res/layout',
                                     'src/main/res/layout-large',
                                     'src/main/res'
@@ -62,7 +63,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
     )
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.litepal.android:core:1.4.1'

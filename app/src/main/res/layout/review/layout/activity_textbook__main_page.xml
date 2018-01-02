@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.uiwidgettest.myreview.textbook.activity.Textbook_MainPage">
+    <Spinner
+        android:id="@+id/textbook_spinner"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:entries="@array/spinner_3_16" />
+    <FrameLayout
+        android:id="@+id/textbook_fragment_place"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<fragment
+    android:id="@+id/textbook_fragment"
+    android:name="com.example.uiwidgettest.myreview.textbook.fragment.SpinnerAndTable"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+    </FrameLayout>
+</LinearLayout>

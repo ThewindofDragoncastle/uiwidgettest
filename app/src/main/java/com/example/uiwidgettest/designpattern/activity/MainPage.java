@@ -46,17 +46,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainPage extends AppCompatActivity implements OnClickListener {
-    // 碎片参数
-    private final int SINGLETON=0;
-    private final int SIMPLEFACTORY=1;
-    private final int FACTORYMETHOD=2;
-    private final int BUIILDER_MODE=3;
     @BindView(R.id.buttonrecyclerview)
     RecyclerView recyclerView;
     private ButtonRecycleAdapter recycleAdapter;
     //放置按钮以及文本
     private List<ButtonAndText> buttonAndTexts=new ArrayList<>();
-    private int i=0;
 //    常量列表
     private final String TAG=getClass().getName();
     private final String DESIGNPATTER_SINGLETON="单例模式";
@@ -73,7 +67,7 @@ public class MainPage extends AppCompatActivity implements OnClickListener {
         setContentView(R.layout.activity_review);
         ButterKnife.bind(this);
         initButtonAndTexts();
-        recycleAdapter=new ButtonRecycleAdapter(this,this,buttonAndTexts);
+        recycleAdapter=new ButtonRecycleAdapter(this,this,buttonAndTexts,null,null);
         recyclerView.setAdapter(recycleAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -86,8 +80,7 @@ public class MainPage extends AppCompatActivity implements OnClickListener {
     }
     private void addname(String introduce)
     {
-        ButtonAndText text=new ButtonAndText(i);
-        i++;
+        ButtonAndText text=new ButtonAndText();
         text.setButtonName("任意门");
         text.setText(introduce);
         buttonAndTexts.add(text);
@@ -95,31 +88,9 @@ public class MainPage extends AppCompatActivity implements OnClickListener {
 
     @Override
     public void OnClick(View v, int postion) {
-        Intent intent;
-        JSONArray array;
-        switch (buttonAndTexts.get(postion).getCODE())
-        {
-            case  SINGLETON:
-                intent=new Intent(this,DesignDisplayData.class);
-                intent.putExtra("FragmentParams",SINGLETON);
+        Intent intent=new Intent(this,DesignDisplayData.class);
+                intent.putExtra("FragmentParams",postion);
                 startActivity(intent);
-                break;
-            case  SIMPLEFACTORY:
-                intent=new Intent(this,DesignDisplayData.class);
-                intent.putExtra("FragmentParams",SIMPLEFACTORY);
-                startActivity(intent);
-                break;
-            case FACTORYMETHOD:
-                intent=new Intent(this,DesignDisplayData.class);
-                intent.putExtra("FragmentParams",FACTORYMETHOD);
-                startActivity(intent);
-                break;
-            case  BUIILDER_MODE:
-                intent=new Intent(this,DesignDisplayData.class);
-                intent.putExtra("FragmentParams",BUIILDER_MODE);
-                startActivity(intent);
-                break;
-        }
     }
 
     @Override

@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.uiwidgettest.BaseActivity;
-import com.example.uiwidgettest.NextPage;
+import com.example.uiwidgettest.MainPage.FunctionIntegration;
 import com.example.uiwidgettest.R;
 import com.example.uiwidgettest.mvpupdatechat.model.service.ConnwithService;
 import com.example.uiwidgettest.mvpupdatechat.model.service.RecieveData;
@@ -116,7 +116,7 @@ FrameLayout frameLayout;
                }
                else {
                    //摧毁活动没有意义，因为退出之后还必须服务接受消息
-                   Intent intent=new Intent(MainPage.this, NextPage.class);
+                   Intent intent=new Intent(MainPage.this,FunctionIntegration.class);
                    startActivity(intent);
                    backcount=0;
                }

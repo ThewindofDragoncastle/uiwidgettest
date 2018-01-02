@@ -38,5 +38,11 @@
         <item>GMT - 23:00</item>
     </array>
 
-
+<string-array name="spinner_3_16">
+    <item name="id1">表格式布局以及日历</item>
+    <item name="id2">Japan</item>
+    <item name="id3">American</item>
+    <item name="id4">korea</item>
+    <item name="id5">Indian</item>
+</string-array>
 </resources>

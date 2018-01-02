@@ -1,48 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button android:id="@+id/button_11"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="显式intent进入活动二"></Button>
-    <Button android:id="@+id/button_13"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="隐式intent进入活动二"/>
-    <Button android:id="@+id/button_14"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:text="向活动二传递数据"/>
-    <Button
-        android:id="@+id/button_15"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="开启活动二而且写入请求码"/>
-    <Button
-        android:id="@+id/button_16"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="standard模式前往本活动"/>
-    <Button
-        android:id="@+id/button_17"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="前往活动四singletop"/>
-    <Button
-        android:id="@+id/button_18"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="前往活动五singletask"/>
-    <Button
-        android:id="@+id/button_19"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="前往活动六singleinstance"/>
-    <Button android:id="@+id/button_12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="退出"
-        />
-
-</LinearLayout>
+<android.support.v7.widget.RecyclerView
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/activity_recycler_view"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+</android.support.v7.widget.RecyclerView>

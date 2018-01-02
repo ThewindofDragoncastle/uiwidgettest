@@ -30,6 +30,7 @@ import com.example.uiwidgettest.myreview.json.JsontoString;
 import com.example.uiwidgettest.myreview.json.StringtoJson;
 import com.example.uiwidgettest.myreview.mediaplayer.view.activity.BufferMediaplayer;
 import com.example.uiwidgettest.myreview.service.PlayService;
+import com.example.uiwidgettest.myreview.textbook.activity.Textbook_MainPage;
 
 import org.json.JSONArray;
 
@@ -39,7 +40,6 @@ import java.util.List;
 public class Review extends AppCompatActivity implements OnClickListener {
 private RecyclerView recyclerView;
     private ButtonRecycleAdapter recycleAdapter;
-    private   int i=0;
     private DIYBroadcast diyBroadcast;
     private IntentFilter intentFilter;
     //放置按钮以及文本
@@ -48,7 +48,6 @@ private RecyclerView recyclerView;
     //数据库
     private HeroDatabase heroDatabase;
     private SQLiteDatabase databaseR;
-    private SQLiteDatabase databaseW;
     private SQLhelper sqLhelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +63,12 @@ private RecyclerView recyclerView;
         setContentView(R.layout.activity_review);
         recyclerView=(RecyclerView)findViewById(R.id.buttonrecyclerview) ;
         initButtonAndTexts();
-        recycleAdapter=new ButtonRecycleAdapter(this,this,buttonAndTexts);
+        recycleAdapter=new ButtonRecycleAdapter(this,this,buttonAndTexts,null,null);
         recyclerView.setAdapter(recycleAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         diyBroadcast=new DIYBroadcast();
         heroDatabase=new HeroDatabase(this,"reviewhero", null,1);
         databaseR=heroDatabase.getReadableDatabase();
-        databaseW=heroDatabase.getWritableDatabase();
         sqLhelper=new SQLhelper();
     }
     private void initButtonAndTexts()
@@ -88,6 +86,7 @@ private RecyclerView recyclerView;
                 "并且以静态广播的形式对用户在通知界面的点击做出反应。后台服务可以自动循环播放，播放下一首" +
                 "歌曲。");
         addname("网络播放视频");
+        addname("table———layout布局方式，日历等等");
         addname("~~~~~~~~~");
     }
 
@@ -142,8 +141,7 @@ private RecyclerView recyclerView;
     }
     private void addname(String introduce)
     {
-        ButtonAndText text=new ButtonAndText(i);
-        i++;
+        ButtonAndText text=new ButtonAndText();
         text.setButtonName("传送门");
         text.setText(introduce);
         buttonAndTexts.add(text);
@@ -178,22 +176,23 @@ private RecyclerView recyclerView;
     public void OnClick(View v, int postion) {
         Intent intent;
         JSONArray array;
-        switch (buttonAndTexts.get(postion).getCODE())
+        ButtonText text=ButtonText.getIndex(postion);
+        switch (text)
         {
-            case  0:
+            case ReturnActivityForResult:
                 //给下一个网页活动传递数据 并规定能响应的网页
                 intent=new Intent("com.example.uiwidgettest.ACTION_MYWEBVIEW");
                 intent.addCategory("android.intent.category.ACTION_MYWEBVIEW");
                 intent.setData(Uri.parse("http://www.baidu.com"));
                 startActivityForResult(intent,1);
                 break;
-            case  1:
+            case  Broadcast:
                 intent=new Intent("com.example.uiwidgettest.SENDNOTIFICATION");
                         localBroadcastManager.sendBroadcast(intent);
                 break;
-            case  2:
+            case  FileSave:
                 break;
-            case  3:
+            case  StringToJson:
                 //打开数组转换类
                 array=new StringtoJson().Listcat(initArray());
                 intent=new Intent(this,DisplayData.class);
@@ -201,7 +200,7 @@ private RecyclerView recyclerView;
                 intent.putExtra("display",true);
                 startActivity(intent);
                 break;
-            case  4:
+            case  JsonToString:
                 array=new StringtoJson().Listcat(initArray());
                 JsontoString json=new JsontoString();
                 intent=new Intent(this,DisplayData.class);
@@ -209,22 +208,22 @@ private RecyclerView recyclerView;
                 intent.putExtra("stringtojson",json.toJson(array.toString()));
                 startActivity(intent);
                 break;
-            case  5:
+            case  Database:
                 intent=new Intent(this,DisplayData.class);
                 intent.putExtra("display",false);
                 startActivity(intent);
                 break;
-            case  6:
+            case  CP:
                 intent=new Intent(this,DispalyCP.class);
                 startActivity(intent);
                 break;
-            case  7:
+            case  TakePhoto:
                 intent=new Intent(this,DisplayData.class);
                 intent.putExtra("display",false);
                 intent.putExtra("photo",true);
                 startActivity(intent);
                 break;
-            case  8:
+            case  PlayMusic:
                 intent=new Intent(this,PlayService.class);
                 startService(intent);
                 intent=new Intent(this,DisplayData.class);
@@ -232,10 +231,30 @@ private RecyclerView recyclerView;
                 intent.putExtra("moviesong",true);
                 startActivity(intent);
                 break;
-            case  9:
+            case  PlayVideo:
                 intent=new Intent(this,BufferMediaplayer.class);
                 startActivity(intent);
                 break;
+            case  TableLayout:
+                intent=new Intent(this,Textbook_MainPage.class);
+                startActivity(intent);
+                break;
+            case  Default:
+                break;
         }
     }
+   public enum ButtonText
+   {
+       ReturnActivityForResult, Broadcast,FileSave,StringToJson
+       ,JsonToString,Database,CP,TakePhoto,PlayMusic,PlayVideo,TableLayout,Default;
+       public static ButtonText getIndex(int text)
+       {
+         for(ButtonText text1:values())
+         {
+             if (text1.ordinal()==text)
+                 return text1;
+         }
+         return null;
+       }
+   }
 }

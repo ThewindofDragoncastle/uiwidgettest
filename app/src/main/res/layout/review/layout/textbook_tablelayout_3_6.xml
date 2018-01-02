@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:stretchColumns="0"
+    android:shrinkColumns="2"
+    android:layout_height="match_parent">
+    <!-- 0行伸展 android:stretchColumns="0"
+    3行收缩
+    android:shrinkColumns="3"-->
+<TableRow
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="mylove" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="mylove" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="myloveeeeeeeeeeeeeeee333333333333333333333333333333333333333333333333333333" />
+</TableRow>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="mylove" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="mylove" />
+    </TableRow>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="mylove" />
+    </TableRow>
+    <DatePicker
+        android:layout_height="wrap_content"
+        android:layout_width="100dp" />
+    <TimePicker
+        android:layout_height="100dp"
+        android:layout_width="wrap_content"/>
+</TableLayout>

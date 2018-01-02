@@ -7,13 +7,6 @@ package com.example.uiwidgettest.myreview;
 public class ButtonAndText {
     private String ButtonName;
     private String Text;
-    //每个对象的唯一编号
-    private final int CODE;
-
-    public int getCODE() {
-        return CODE;
-    }
-
     public String getButtonName() {
         return ButtonName;
     }
@@ -21,10 +14,6 @@ public class ButtonAndText {
     public String getText() {
         return Text;
     }
-   public ButtonAndText(int code)
-  {
-    CODE=code;
-  }
     public void setButtonName(String buttonName) {
         ButtonName = buttonName;
     }

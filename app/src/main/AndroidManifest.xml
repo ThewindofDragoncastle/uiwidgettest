@@ -32,15 +32,13 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="PIHX4wsvVpcRYdtsKd8hzDSbxp0ZeTIZ" />
-
-        <activity android:name=".FunctionIntegration">
+        <activity android:name=".MainPage.FunctionIntegration">
             <intent-filter>
                 <action
                     android:name="android.intent.action.MAIN"
                     android:icon="@drawable/apppicture"
                     android:label="无所不能的涛"
                     android:launchMode="singleTask" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -75,10 +73,6 @@
         <activity
             android:name=".news.MainxxActivity"
             android:label="标题页界面"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".activity.ActivityIntegration"
-            android:label="活动功能集合界面"
             android:launchMode="singleTask" />
         <activity
             android:name=".fragment.FragmentIntergration"
@@ -240,9 +234,6 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity
-            android:name=".NextPage"
-            android:launchMode="singleInstance" />
         <activity android:name=".usebaidumap.BaidumapTextView" />
 
         <service
@@ -338,6 +329,7 @@
         <service
             android:name=".mvpupdatechat.model.service.RecieveData"
             android:exported="false" />
+
         <activity android:name=".myreview.mediaplayer.view.activity.BufferMediaplayer" />
         <activity android:name=".view.activity.ViewActivity" />
         <activity android:name=".designpattern.activity.MainPage" />
@@ -345,6 +337,7 @@
         <activity android:name=".winddragonnews.activity.MainPage" />
         <activity android:name=".winddragonnews.activity.Newsitem" />
         <activity android:name=".winddragonnews.activity.SettingsActivity" />
+        <activity android:name=".myreview.textbook.activity.Textbook_MainPage"></activity>
     </application>
 
 </manifest>
